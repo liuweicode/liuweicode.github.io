@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Liu wei</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</description>
+    <link>https://liuweicode.github.io/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 18 Apr 2015 23:56:51 +0800</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2015 23:56:51 +0800</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>紫外线指数</title>
+        <description>&lt;a href=&quot;https://itunes.apple.com/cn/app/zi-wai-xian-zhi-shu/id881828245?mt=8&quot;&gt;&lt;img src=&quot;img/available_on_the_app_store.png&quot; alt=&quot;Available on the app store&quot;/&gt;&lt;/a&gt;</description>
+        <pubDate>Sat, 18 Apr 2015 00:00:00 +0800</pubDate>
+        <link>https://liuweicode.github.io/app%20development/2015/04/18/%E7%B4%AB%E5%A4%96%E7%BA%BF%E6%8C%87%E6%95%B0/</link>
+        <guid isPermaLink="true">https://liuweicode.github.io/app%20development/2015/04/18/%E7%B4%AB%E5%A4%96%E7%BA%BF%E6%8C%87%E6%95%B0/</guid>
+        
+        
+        <category>app development</category>
+        
+      </item>
+    
+      <item>
+        <title>沃下载</title>
+        <description></description>
+        <pubDate>Sat, 18 Apr 2015 00:00:00 +0800</pubDate>
+        <link>https://liuweicode.github.io/app%20development/2015/04/18/%E6%B2%83%E4%B8%8B%E8%BD%BD/</link>
+        <guid isPermaLink="true">https://liuweicode.github.io/app%20development/2015/04/18/%E6%B2%83%E4%B8%8B%E8%BD%BD/</guid>
+        
+        
+        <category>app development</category>
+        
+      </item>
+    
+      <item>
+        <title>形象体验</title>
+        <description>&lt;a href=&quot;https://itunes.apple.com/cn/app/vid-xing-xiang-ti-yanhd/id784454116?mt=8&quot;&gt;&lt;img src=&quot;img/available_on_the_app_store.png&quot; alt=&quot;Available on the app store&quot;/&gt;&lt;/a&gt;</description>
+        <pubDate>Sat, 18 Apr 2015 00:00:00 +0800</pubDate>
+        <link>https://liuweicode.github.io/app%20development/2015/04/18/%E5%BD%A2%E8%B1%A1%E4%BD%93%E9%AA%8C/</link>
+        <guid isPermaLink="true">https://liuweicode.github.io/app%20development/2015/04/18/%E5%BD%A2%E8%B1%A1%E4%BD%93%E9%AA%8C/</guid>
+        
+        
+        <category>app development</category>
+        
+      </item>
+    
+      <item>
+        <title>名典代价</title>
+        <description></description>
+        <pubDate>Sat, 18 Apr 2015 00:00:00 +0800</pubDate>
+        <link>https://liuweicode.github.io/app%20development/2015/04/18/%E5%90%8D%E5%85%B8%E4%BB%A3%E4%BB%B7/</link>
+        <guid isPermaLink="true">https://liuweicode.github.io/app%20development/2015/04/18/%E5%90%8D%E5%85%B8%E4%BB%A3%E4%BB%B7/</guid>
+        
+        
+        <category>app development</category>
+        
+      </item>
+    
+      <item>
+        <title>Nta饭店联盟</title>
+        <description></description>
+        <pubDate>Sat, 18 Apr 2015 00:00:00 +0800</pubDate>
+        <link>https://liuweicode.github.io/app%20development/2015/04/18/NTA%E9%A5%AD%E5%BA%97%E8%81%94%E7%9B%9F/</link>
+        <guid isPermaLink="true">https://liuweicode.github.io/app%20development/2015/04/18/NTA%E9%A5%AD%E5%BA%97%E8%81%94%E7%9B%9F/</guid>
+        
+        
+        <category>app development</category>
+        
+      </item>
+    
+      <item>
+        <title>Dalitek智能家居</title>
+        <description></description>
+        <pubDate>Sat, 18 Apr 2015 00:00:00 +0800</pubDate>
+        <link>https://liuweicode.github.io/app%20development/2015/04/18/Dalitek%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/</link>
+        <guid isPermaLink="true">https://liuweicode.github.io/app%20development/2015/04/18/Dalitek%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/</guid>
+        
+        
+        <category>app development</category>
+        
+      </item>
+    
+  </channel>
+</rss>
