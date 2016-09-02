@@ -1,0 +1,16 @@
+# Site settings
+title:        "LIUWEI CODE"
+description:  "To be a stronger and better version of myself!"
+baseurl:      "" # the subpath of your site, e.g. /blog/
+url:          "http://liuwei.co" # the base hostname & protocol for your site
+permalink:    /:year/:title
+github:       "liuweicode"
+twitter:      "liuweisays"
+email:        "i@liuwei.co"
+# disqus-id:    "example" #leave blank if you dont want comments.
+
+
+# Build settings
+markdown:     kramdown
+sass:
+    style: :compressed
