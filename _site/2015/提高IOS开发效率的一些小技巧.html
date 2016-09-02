@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+    <title>提高IOS开发效率的一些小技巧</title>
+    <meta name="description" content="一，快捷键">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="http://liuwei.co/2015/%E6%8F%90%E9%AB%98IOS%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%8A%80%E5%B7%A7">
+    <link rel="alternate" type="application/rss+xml" title="LIUWEI CODE" href="http://liuwei.co/feed.xml" />
+</head>
+
+
+<body>
+  <aside class="main-header">
+  <header class="module">
+    <h1><a href="/">LIUWEI CODE</a></h1>
+  </header>
+  <div class="module color2">
+    To be a stronger and better version of myself!
+  </div>
+  <nav class="module color4">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <div class="module color3">
+    github/liuweicode
+    <br>twitter/liuweisays
+    <br>i@liuwei.co
+  </div>
+</aside>
+
+
+  <section class="main-content">
+    <article class="color3 module">
+  <a href="/2015/%E6%8F%90%E9%AB%98IOS%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%8A%80%E5%B7%A7"><h1>提高IOS开发效率的一些小技巧</h1></a>
+  <hr>
+  <time>Aug 17, 2015</time>
+  <h2 id="section">一，快捷键</h2>
+
+<h3 id="section-1">1.添加删除当前行快捷键</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo vim /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework/Resources/IDETextKeyBindingSet.plist
+</code></pre>
+</div>
+<p>找到Deletion节点，添加以下代码:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;key&gt;Delete Current Line&lt;/key&gt; 
+&lt;string&gt;deleteToBeginningOfLine:, moveToEndOfLine:, deleteToBeginningOfLine:, deleteBackward:, moveDown:, moveToBeginningOfLine:&lt;/string&gt;
+</code></pre>
+</div>
+<p>依次点击 <code class="highlighter-rouge">xcode -&gt; Preferences -&gt; Key Bindings</code> 在输入框中输入delete current line , 在右边的Key一栏中绑定快捷键，这里我喜欢Eclipse的风格<code class="highlighter-rouge">command + d</code></p>
+
+<p><img src="../images/xcode-command+d.png" alt="image" /></p>
+
+<h3 id="section-2">2.修改默认快捷键</h3>
+
+<p>平时在开发过程中，我用到最多的快捷键是布局界面的切换和查找，如下：</p>
+
+<p><img src="../images/xcode-shortcut-key.png" alt="image" /></p>
+
+<h2 id="code-snippets">二，Code Snippets</h2>
+
+<p>把一些常用的代码块作为自定义code snippets，这个因人而异。我这里定义了一些常用的注释，GCD，ifelse，switch等。
+这里推荐一个插件，<a href="https://github.com/acoomans/ACCodeSnippetRepositoryPlugin">ACCodeSnippetRepository</a> <br />
+这个是我的snippets repository：https://github.com/liuweicode/snippets</p>
+
+<h2 id="xcode">三，xcode插件</h2>
+
+<p><a href="https://github.com/supermarin/Alcatraz">Alcatraz</a>：Package manager for Xcode</p>
+
+
+</article>
+
+
+
+
+      <footer class="module color3">
+  &copy; <span class="right">Subscribe <a href="/feed.xml">via RSS</a></span>
+</footer>
+
+  </section>
+
+</body>
+</html>

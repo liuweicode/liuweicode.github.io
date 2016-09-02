@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+    <title>搭建个人知识管理平台</title>
+    <meta name="description" content="环境">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="http://liuwei.co/2015/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0">
+    <link rel="alternate" type="application/rss+xml" title="LIUWEI CODE" href="http://liuwei.co/feed.xml" />
+</head>
+
+
+<body>
+  <aside class="main-header">
+  <header class="module">
+    <h1><a href="/">LIUWEI CODE</a></h1>
+  </header>
+  <div class="module color2">
+    To be a stronger and better version of myself!
+  </div>
+  <nav class="module color4">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <div class="module color3">
+    github/liuweicode
+    <br>twitter/liuweisays
+    <br>i@liuwei.co
+  </div>
+</aside>
+
+
+  <section class="main-content">
+    <article class="color3 module">
+  <a href="/2015/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0"><h1>搭建个人知识管理平台</h1></a>
+  <hr>
+  <time>Aug 16, 2015</time>
+  <h2 id="section">环境</h2>
+
+<ul>
+  <li>ECS 1核/1G/CentOS6.5 x64</li>
+  <li>Nginx 1.0.15</li>
+  <li>Nodejs v0.12.7</li>
+  <li>Forever v0.15.1</li>
+</ul>
+
+<h2 id="section-1">安装</h2>
+
+<p>前期服务器搭建，反向代理设置等已经做好，下面只记录一下Raneto的安装过程。主要是针对自己的喜好，做了一些修改。</p>
+
+<h3 id="ranetohttpsgithubcomgilbitronranetoreleases">1.下载 <a href="https://github.com/gilbitron/Raneto/releases">Raneto</a></h3>
+
+<p>目前最新版本v0.6.0，下载并解压到网站根目录：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>wget https://github.com/gilbitron/Raneto/archive/0.6.0.tar.gz
+tar -zxvf 0.6.0.tar.gz -C /home/wwwroot/
+cd /home/wwwroot/
+mv Raneto-0.6.0 liuwei.co
+chown www.www liuwei.co -R
+</code></pre>
+</div>
+
+<h3 id="section-2">2.修改首页列表宽度全屏</h3>
+
+<p>将首页列表宽度改成100%</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd /home/wwwroot/liuwei.co
+vim public/styles/raneto.css
+</code></pre>
+</div>
+<p>将下面的代码添加到最后:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/*将首页列表宽度改成100%*/
+.col-sm-4 {
+  width: 100%;
+}
+</code></pre>
+</div>
+
+<h3 id="section-3">3.添加中文搜索支持</h3>
+
+<p>感谢<a href="https://github.com/nandy007/lunr.js">nandy007</a>为lunr.js添加了中文搜索的支持，修改package.json：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>vim package.json
+</code></pre>
+</div>
+<p>找到<code class="highlighter-rouge">dependencies</code>节点下面的<code class="highlighter-rouge">lunr</code>模块，如下:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "express": "~4.2.0",
+    "extend": "^1.2.1",
+    "glob": "^4.0.0",
+    "hogan-express": "^0.5.2",
+    "lunr": "^0.5.3",
+    "marked": "^0.3.2",
+    "moment": "^2.6.0",
+    "morgan": "~1.0.0",
+    "raneto-core": "0.x",
+    "static-favicon": "~1.0.0",
+    "underscore": "^1.6.0",
+    "underscore.string": "^2.3.3",
+    "validator": "^3.13.0"
+  }
+</code></pre>
+</div>
+
+<p>替换成下面的代码:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "express": "~4.2.0",
+    "extend": "^1.2.1",
+    "glob": "^4.0.0",
+    "hogan-express": "^0.5.2",
+    "lunr": "https://github.com/liuweicode/lunr.js",
+    "marked": "^0.3.2",
+    "moment": "^2.6.0",
+    "morgan": "~1.0.0",
+    "raneto-core": "0.x",
+    "static-favicon": "~1.0.0",
+    "underscore": "^1.6.0",
+    "underscore.string": "^2.3.3",
+    "validator": "^3.13.0"
+  }
+</code></pre>
+</div>
+
+<h3 id="forever">4.安装依赖并forever启动</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install
+forever stop bin/www
+forever start -e error.log bin/www  
+</code></pre>
+</div>
+
+<h3 id="section-4">5.打开浏览器访问</h3>
+<p>完毕</p>
+
+<hr />
+
+<p>============2015年8月17日 修改================</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>vim views/home.html
+</code></pre>
+</div>
+
+<p>找到<code class="highlighter-rouge">Main Articles</code></p>
+
+<p>修改如下:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="panel panel-default "&gt;
+  &lt;!-- &lt;h2 class="panel-heading"&gt;Main Articles&lt;/h2&gt; --&gt;
+	   &lt;h2 class="panel-heading"&gt;To be a stronger and better version of myself!&lt;/h2&gt;
+		&lt;ul class="list-group pages"&gt;
+			
+				&lt;li class="list-group-item page"&gt;&lt;a href="/"&gt;&lt;/a&gt;&lt;/li&gt;
+			
+		&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<h2 id="todo">TODO</h2>
+<ul>
+  <li>首页添加日期显示</li>
+  <li>首页添加翻页功能</li>
+</ul>
+
+</article>
+
+
+
+
+      <footer class="module color3">
+  &copy; <span class="right">Subscribe <a href="/feed.xml">via RSS</a></span>
+</footer>
+
+  </section>
+
+</body>
+</html>
