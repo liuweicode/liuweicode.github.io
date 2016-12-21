@@ -1,0 +1,50 @@
+<section class="jumbotron geopattern" data-pattern-id="{{ page.title }}">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>{{ page.title }}</h1>
+            <span class="meta-info">
+                {% if page.subtitle %}
+                    {{ page.subtitle }}
+                {% endif %}
+                {% if page.date %}
+                <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        {% if page.title == "四口之家" %}
+                  $('.geopattern').each(function(){
+                        //$(this).geopattern($(this).data('pattern-id'));
+                        $(this).css('background-image', "url('http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg')");
+                    });          
+        {% endif %}
+
+        {% if page.title == "萱萱" %}
+                  $('.geopattern').each(function(){
+                        //$(this).geopattern($(this).data('pattern-id'));
+                        $(this).css('background-image', "url('http://img05.tooopen.com/images/20140919/sy_71272488121.jpg')");
+                    });          
+        {% endif %}
+
+        {% if page.title == "琛琛" %}
+                  $('.geopattern').each(function(){
+                        //$(this).geopattern($(this).data('pattern-id'));
+                        $(this).css('background-image', "url('http://img06.tooopen.com/images/20160924/tooopen_sy_179904684231.jpg')");
+                    });          
+        {% endif %}
+
+        {% if page.title == "Bookmarks" %}
+                  $('.geopattern').each(function(){
+                        //$(this).geopattern($(this).data('pattern-id'));
+                        $(this).css('background-image', "url('http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg')");
+                    });          
+        {% endif %}
+
+        //$('#test1234').css('background-image', "url('http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg')");
+
+    });
+</script>

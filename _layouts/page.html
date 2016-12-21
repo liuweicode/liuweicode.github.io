@@ -1,9 +1,9 @@
 ---
 layout: default
 ---
-<article class="color3 module">
-  <a href="{{ page.url }}"><h2>{{ page.title }}</h2></a>
-  <hr>
-  <time>{{ page.date| date: "%m/%d/%Y" }}</time>
-  {{ content }}
+{% include jumbotron.html %}
+<article class="post container">
+
+    {{ content }}
+
 </article>

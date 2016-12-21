@@ -1,16 +1,101 @@
-# Site settings
-title:        "LIUWEI CODE"
-description:  "To be a stronger and better version of myself!"
-baseurl:      "" # the subpath of your site, e.g. /blog/
-url:          "http://liuwei.co" # the base hostname & protocol for your site
-permalink:    /:year/:title
-github:       "liuweicode"
-twitter:      "liuweisays"
-email:        "i@liuwei.co"
-# disqus-id:    "example" #leave blank if you dont want comments.
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
+# Site settings
+title: I m Wei # ex. I m Chuan
+name: liuwei.co # ex. DONGChuan
+subtitle: 家有儿女初长成
+email: i@liuwei.co
+location: 上海 # ex. Nice, France
+company: 上海凌晋信息技术有限公司
+company_url: http://www.linkim.com.cn
+github_url: https://github.com/liuweicode # ex. https://github.com/DONGChuan
+description: 家有儿女初长成
+favicon: favicon.png # Image must be in assets/images
+repository: liuweicode/liuweicode.github.io # ex. DONGChuan/DONGChuan.github.io
+
+# The base hostname & protocol for your site
+# For local test, please use http://localhost:4000
+# For production, use your github page url. ex. http://dongchuan.github.io
+url: http://localhost:4000
+
+## Gem
+gems:
+  - jekyll-paginate
+  - jekyll-geo-pattern
+  - rouge
+  - kramdown
+  - jekyll-github-metadata
 
 # Build settings
-markdown:     kramdown
-sass:
-    style: :compressed
+markdown: kramdown
+highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
+
+source:      .
+destination: ./_site
+
+quiet:    false
+defaults: []
+
+kramdown:
+  input: GFM
+  enable_coderay: true
+
+# Disque
+disque: my_disque_settings # ex. httpdongchuangithubio.disqus.com
+
+# Pagination
+paginate: 10
+paginate_path: 'page:num'
+
+# Navigation. If you do not like these modules, just remove them :D
+navs:
+  -
+    href: /
+    label: 主页
+
+  -
+    href: /chenchen
+    label: 琛琛
+
+  -
+    href: /xuanxuan
+    label: 萱萱
+
+  -
+    href: /weddingday
+    label: 小永远
+
+  -
+    href: /open-source
+    label: 开源项目
+
+  -
+    href: /bookmark
+    label: 技术
+
+  -
+    href: /about
+    label: 关于我们
+
+# Sidebar to show popular repo
+side_bar_repo_limit: 5 # Number of repos to show
+
+# Google Analytics
+analytics :
+  provider : google
+  google :
+      tracking_id : 'tracking_id'  # ex. UA-72165600-X
+
+
+# For about.html. Fell free to create your own!
+skill_software_keywords: [Java, C, C++, Qt, Python, MySQL, Oracle, SQLite, PL/SQL, Design Patterns]
+skill_j2ee_keywords: [Spring, Struct, Hibernet, MyBatis, JSP]
+skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, AngularJS, NodeJS, ExpressJS, MongoDB, Redis, PHP, Symfony, Boostrap]
+skill_mobile_app_keywords: [Android, Sketch UI Desgin]

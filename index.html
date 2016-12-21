@@ -1,28 +1,67 @@
 ---
 layout: default
+menu: home
+css: ['index.css', 'sidebar-popular-repo.css']
 ---
-
-{% for post in site.posts limit:1 %}
-  <article class="module color3">
-    <h2>
-      <a class="red" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-    <time>{{ post.date| date: "%m/%d/%Y" }}</time>
-    <p>
-      {{ post.content | strip_html | truncate: 250 }}
-    </p>
-  </article>
-{% endfor %}
-
-{% for post in site.posts offset:1 limit:4 %}
-  <article class="module color3">
-    <h2>
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-    <time>{{ post.date| date: "%m/%d/%Y" }}</time>
-</article>
-{% endfor %}
-
-<section class="module color3">
-  <a href="{{ 'archives' | prepend: site.baseurl }}">More Posts &rarr;</a>
+<section class="jumbotron">
+    <div class="container">
+        <h1>{{ site.subtitle }}</h1>
+        <!-- <div id="jumbotron-meta-info">
+            {% if site.location %}
+            <span class="meta-info">
+                <span class="octicon octicon-location"></span>
+                {{ site.location }}
+            </span> {% endif %}
+            {% if site.company %}
+            <span class="meta-info hvr-grow">
+                <span class="octicon octicon-organization"></span>
+                <a href="{{ site.company_url }}" target="_blank">{{ site.company }}</a>
+            </span> {% endif %}
+            {% if site.github_url %}
+            <span class="meta-info hvr-grow">
+                <span class="octicon octicon-mark-github"></span>
+                <a href="{{ site.github_url }}" target="_blank">@{{ site.name }}</a>
+            </span> {% endif %}
+        </div> -->
+    </div>
 </section>
+<section class="content container">
+
+    <div class="row">
+
+        <!-- Post List -->
+        <div class="col-md-8">
+
+            <ol class="post-list">
+                {% for post in paginator.posts %}
+                <li class="post-list-item">
+                    <h2 class="post-list-title">
+                        <a class="hvr-underline-from-center" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                    </h2>
+                    <p class="post-list-description">
+                        {{ post.excerpt | strip_html | strip }}
+                    </p>
+                    <p class="post-list-meta">
+                        <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
+                    </p>
+                </li>
+                {% endfor %}
+            </ol>
+
+            <!-- Pagination -->
+            {% include pagination.html %}
+
+            <!-- Comments -->
+            {% include disqus-comments.html %}
+
+        </div>
+
+        <div class="col-md-4">
+        {% include sidebar-post-tag.html %}
+            <!-- {% include sidebar-popular-repo.html %} -->
+        </div>
+
+    </div>
+
+</section>
+
