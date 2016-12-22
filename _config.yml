@@ -70,15 +70,15 @@ navs:
 
   -
     href: /weddingday
-    label: 小永远
+    label: 纪念日
 
-  -
-    href: /open-source
-    label: 开源项目
+  # -
+  #   href: /open-source
+  #   label: 开源项目
 
-  -
-    href: /bookmark
-    label: 技术
+  # -
+  #   href: /bookmark
+  #   label: 技术
 
   -
     href: /about
