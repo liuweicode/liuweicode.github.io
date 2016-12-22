@@ -40,15 +40,11 @@
                     });          
         {% endif %}
 
-        {% if page.title == "Bookmarks" %}
+        {% if page.title == "About Me" %}
                   $('.geopattern').each(function(){
-                        //$(this).geopattern($(this).data('pattern-id'));
-                        $(this).css('background-image', "url('http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg')");
-                        $(this).css('background-size', "cover");
+                        $(this).geopattern($(this).data('pattern-id'));
                     });          
         {% endif %}
-
-        //$('#test1234').css('background-image', "url('http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg')");
 
     });
 </script>
