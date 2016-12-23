@@ -21,7 +21,7 @@ repository: liuweicode/liuweicode.github.io # ex. DONGChuan/DONGChuan.github.io
 # The base hostname & protocol for your site
 # For local test, please use http://localhost:4000
 # For production, use your github page url. ex. http://dongchuan.github.io
-url: http://liuwei.co
+url: http://localhost:4000
 
 ## Gem
 gems:
@@ -48,7 +48,7 @@ kramdown:
   enable_coderay: true
 
 # Disque
-disque: liuweicode.disqus.com # ex. httpdongchuangithubio.disqus.com
+disque: my_disque_settings # ex. httpdongchuangithubio.disqus.com
 
 # Pagination
 paginate: 10
@@ -70,15 +70,15 @@ navs:
 
   -
     href: /weddingday
-    label: 纪念日
+    label: 小永远
 
-  # -
-  #   href: /open-source
-  #   label: 开源项目
+  -
+    href: /open-source
+    label: 开源项目
 
-  # -
-  #   href: /bookmark
-  #   label: 技术
+  -
+    href: /bookmark
+    label: 技术
 
   -
     href: /about

@@ -13,8 +13,8 @@
     <meta name="description"
           content="家有儿女初长成">
 
-    <link rel="canonical" href="http://liuwei.co/bookmark.html">
-    <link rel="alternate" type="application/rss+xml" title="I m Wei" href="http://liuwei.co/feed.xml">
+    <link rel="canonical" href="http://localhost:4000/bookmark.html">
+    <link rel="alternate" type="application/rss+xml" title="I m Wei" href="http://localhost:4000/feed.xml">
 
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -46,7 +46,7 @@
     <header class="site-header">
     <div class="container">
         <a id="site-header-brand" href="/" title="liuwei.co">
-            <span class="octicon octicon-smiley"></span> liuwei.co
+            <span class="octicon octicon-heart"></span> liuwei.co
         </a>
         <nav class="site-header-nav" role="navigation">
             
@@ -74,8 +74,22 @@
             <a href="/weddingday"
                class=" site-header-nav-item hvr-underline-from-center"
                target=""
-               title="纪念日">
-                纪念日
+               title="小永远">
+                小永远
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="开源项目">
+                开源项目
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="技术">
+                技术
             </a>
             
             <a href="/about"
@@ -117,7 +131,6 @@
                   $('.geopattern').each(function(){
                         //$(this).geopattern($(this).data('pattern-id'));
                         $(this).css('background-image', "url('http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg')");
-                        $(this).css('background-size', "cover");
                     });          
         
 
@@ -257,7 +270,7 @@
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
 
-            s.src = '//liuweicode.disqus.com/embed.js';
+            s.src = '//my_disque_settings/embed.js';
 
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);

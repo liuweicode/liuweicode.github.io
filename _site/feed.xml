@@ -3,10 +3,10 @@
   <channel>
     <title>I m Wei</title>
     <description>家有儿女初长成</description>
-    <link>http://liuwei.co/</link>
-    <atom:link href="http://liuwei.co/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 Dec 2016 23:00:35 +0800</pubDate>
-    <lastBuildDate>Thu, 22 Dec 2016 23:00:35 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 22 Dec 2016 00:03:49 +0800</pubDate>
+    <lastBuildDate>Thu, 22 Dec 2016 00:03:49 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -16,8 +16,8 @@
 &lt;p&gt;You just need to set &lt;strong&gt;no-post-nav: true&lt;/strong&gt; for your post&lt;/p&gt;
 </description>
         <pubDate>Fri, 13 May 2016 19:25:35 +0800</pubDate>
-        <link>http://liuwei.co/2016/05/13/Example-No-Sidebar-Nav.html</link>
-        <guid isPermaLink="true">http://liuwei.co/2016/05/13/Example-No-Sidebar-Nav.html</guid>
+        <link>http://localhost:4000/2016/05/13/Example-No-Sidebar-Nav.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/13/Example-No-Sidebar-Nav.html</guid>
         
         <category>jekyll update</category>
         
@@ -37,8 +37,8 @@
 &lt;h2 id=&quot;licence&quot;&gt;Licence&lt;/h2&gt;
 </description>
         <pubDate>Fri, 13 May 2016 19:25:35 +0800</pubDate>
-        <link>http://liuwei.co/2016/05/13/welcome-to-yummy.html</link>
-        <guid isPermaLink="true">http://liuwei.co/2016/05/13/welcome-to-yummy.html</guid>
+        <link>http://localhost:4000/2016/05/13/welcome-to-yummy.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/13/welcome-to-yummy.html</guid>
         
         <category>jekyll update</category>
         
@@ -250,8 +250,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 22 Apr 2016 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/2016/04/22/CSS-Animation.html</link>
-        <guid isPermaLink="true">http://liuwei.co/2016/04/22/CSS-Animation.html</guid>
+        <link>http://localhost:4000/2016/04/22/CSS-Animation.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/04/22/CSS-Animation.html</guid>
         
         <category>CSS</category>
         
