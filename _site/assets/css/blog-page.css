@@ -1,8 +1,8 @@
 #posts-list {
     list-style-type: none;
-    margin: 20px 0 20px 20px;
+    margin: 20px 0 20px 120px;
     padding-left: 30px;
-    /*border-left: 8px solid #4183c4;*/
+    border-left: 8px solid #4183c4;
 }
 
 #posts-list li {

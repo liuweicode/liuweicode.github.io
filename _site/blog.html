@@ -11,10 +11,10 @@
 
     <title>All My Blogs</title>
     <meta name="description"
-          content="家有儿女初长成">
+          content="description_of_your_web_site">
 
     <link rel="canonical" href="http://localhost:4000/blog.html">
-    <link rel="alternate" type="application/rss+xml" title="I m Wei" href="http://localhost:4000/feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="Yummy Theme" href="http://localhost:4000/feed.xml">
 
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -45,58 +45,44 @@
 
     <header class="site-header">
     <div class="container">
-        <a id="site-header-brand" href="/" title="liuwei.co">
-            <span class="octicon octicon-heart"></span> liuwei.co
+        <a id="site-header-brand" href="/" title="Your Name">
+            <span class="octicon octicon-mark-github"></span> Your Name
         </a>
         <nav class="site-header-nav" role="navigation">
             
             <a href="/"
                class=" site-header-nav-item hvr-underline-from-center"
                target=""
-               title="主页">
-                主页
-            </a>
-            
-            <a href="/chenchen"
-               class=" site-header-nav-item hvr-underline-from-center"
-               target=""
-               title="琛琛">
-                琛琛
-            </a>
-            
-            <a href="/xuanxuan"
-               class=" site-header-nav-item hvr-underline-from-center"
-               target=""
-               title="萱萱">
-                萱萱
-            </a>
-            
-            <a href="/weddingday"
-               class=" site-header-nav-item hvr-underline-from-center"
-               target=""
-               title="小永远">
-                小永远
+               title="Home">
+                Home
             </a>
             
             <a href="/open-source"
                class=" site-header-nav-item hvr-underline-from-center"
                target=""
-               title="开源项目">
-                开源项目
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
             </a>
             
             <a href="/bookmark"
                class=" site-header-nav-item hvr-underline-from-center"
                target=""
-               title="技术">
-                技术
+               title="Bookmark">
+                Bookmark
             </a>
             
             <a href="/about"
                class=" site-header-nav-item hvr-underline-from-center"
                target=""
-               title="关于我们">
-                关于我们
+               title="About">
+                About
             </a>
             
         </nav>
@@ -121,15 +107,9 @@
 <script>
     $(document).ready(function(){
 
-        
-
-        
-
-        
-
-        
-
-        //$('#test1234').css('background-image', "url('http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg')");
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
 
     });
 </script>
@@ -144,52 +124,25 @@
             
             <li class="posts-list-item">
                 <div class="posts-content">
-                    <!-- <span class="posts-list-meta">2016-05-13</span> -->
-                    <!-- <a class="posts-list-name bubble-float-left" href="http://localhost:4000/2016/05/13/Example-No-Sidebar-Nav.html">Welcome to Jekyll!</a> -->
-                    <!-- <span class='circle'></span> -->
-                    <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://localhost:4000/2016/05/13/Example-No-Sidebar-Nav.html">Welcome to Jekyll!</a>
-                    </h2>
-                    <p class="post-list-description">
-                        This is post no right side bar to nav posts.
-                    </p>
-                    <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2016/05/13
-                    </p>
+                    <span class="posts-list-meta">2016-05-13</span>
+                    <a class="posts-list-name bubble-float-left" href="http://localhost:4000/jekyll/update/2016/05/13/Example-No-Sidebar-Nav.html">Welcome to Jekyll!</a>
+                    <span class="circle"></span>
                 </div>
             </li>
             
             <li class="posts-list-item">
                 <div class="posts-content">
-                    <!-- <span class="posts-list-meta">2016-05-13</span> -->
-                    <!-- <a class="posts-list-name bubble-float-left" href="http://localhost:4000/2016/05/13/welcome-to-yummy.html">Welcome to Jekyll!</a> -->
-                    <!-- <span class='circle'></span> -->
-                    <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://localhost:4000/2016/05/13/welcome-to-yummy.html">Welcome to Jekyll!</a>
-                    </h2>
-                    <p class="post-list-description">
-                        Welcome to use Yummy Jekyll as your jekyll theme!
-                    </p>
-                    <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2016/05/13
-                    </p>
+                    <span class="posts-list-meta">2016-05-13</span>
+                    <a class="posts-list-name bubble-float-left" href="http://localhost:4000/jekyll/update/2016/05/13/welcome-to-yummy.html">Welcome to Jekyll!</a>
+                    <span class="circle"></span>
                 </div>
             </li>
             
             <li class="posts-list-item">
                 <div class="posts-content">
-                    <!-- <span class="posts-list-meta">2016-04-22</span> -->
-                    <!-- <a class="posts-list-name bubble-float-left" href="http://localhost:4000/2016/04/22/CSS-Animation.html">CSS Animation</a> -->
-                    <!-- <span class='circle'></span> -->
-                    <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://localhost:4000/2016/04/22/CSS-Animation.html">CSS Animation</a>
-                    </h2>
-                    <p class="post-list-description">
-                        Quick note about CSS animation.
-                    </p>
-                    <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2016/04/22
-                    </p>
+                    <span class="posts-list-meta">2016-04-22</span>
+                    <a class="posts-list-name bubble-float-left" href="http://localhost:4000/css/2016/04/22/CSS-Animation.html">CSS Animation</a>
+                    <span class="circle"></span>
                 </div>
             </li>
             
@@ -231,7 +184,7 @@
     </div>
 
     <div class="col-md-4">
-        <h3 class="sidebar-title">标签</h3>
+        <h3 class="sidebar-title">Blog Categories</h3>
 <div id="blog-categories">
     <ul class="list-group">
         
@@ -241,18 +194,13 @@
         </li>
         
         <li class="list-group-item">
-            xuanxuan
+            jekyll
             <span class="badge">2</span>
         </li>
         
         <li class="list-group-item">
-            jekyll update
+            update
             <span class="badge">2</span>
-        </li>
-        
-        <li class="list-group-item">
-            chenchen
-            <span class="badge">1</span>
         </li>
         
     </ul>

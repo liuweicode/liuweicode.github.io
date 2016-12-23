@@ -13,8 +13,8 @@
     <meta name="description"
           content="Quick note about CSS animation.">
 
-    <link rel="canonical" href="http://localhost:4000/2016/04/22/CSS-Animation.html">
-    <link rel="alternate" type="application/rss+xml" title="I m Wei" href="http://localhost:4000/feed.xml">
+    <link rel="canonical" href="http://localhost:4000/css/2016/04/22/CSS-Animation.html">
+    <link rel="alternate" type="application/rss+xml" title="Yummy Theme" href="http://localhost:4000/feed.xml">
 
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -45,58 +45,44 @@
 
     <header class="site-header">
     <div class="container">
-        <a id="site-header-brand" href="/" title="liuwei.co">
-            <span class="octicon octicon-heart"></span> liuwei.co
+        <a id="site-header-brand" href="/" title="Your Name">
+            <span class="octicon octicon-mark-github"></span> Your Name
         </a>
         <nav class="site-header-nav" role="navigation">
             
             <a href="/"
                class=" site-header-nav-item hvr-underline-from-center"
                target=""
-               title="主页">
-                主页
-            </a>
-            
-            <a href="/chenchen"
-               class=" site-header-nav-item hvr-underline-from-center"
-               target=""
-               title="琛琛">
-                琛琛
-            </a>
-            
-            <a href="/xuanxuan"
-               class=" site-header-nav-item hvr-underline-from-center"
-               target=""
-               title="萱萱">
-                萱萱
-            </a>
-            
-            <a href="/weddingday"
-               class=" site-header-nav-item hvr-underline-from-center"
-               target=""
-               title="小永远">
-                小永远
+               title="Home">
+                Home
             </a>
             
             <a href="/open-source"
                class=" site-header-nav-item hvr-underline-from-center"
                target=""
-               title="开源项目">
-                开源项目
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
             </a>
             
             <a href="/bookmark"
                class=" site-header-nav-item hvr-underline-from-center"
                target=""
-               title="技术">
-                技术
+               title="Bookmark">
+                Bookmark
             </a>
             
             <a href="/about"
                class=" site-header-nav-item hvr-underline-from-center"
                target=""
-               title="关于我们">
-                关于我们
+               title="About">
+                About
             </a>
             
         </nav>
@@ -121,15 +107,9 @@
 <script>
     $(document).ready(function(){
 
-        
-
-        
-
-        
-
-        
-
-        //$('#test1234').css('background-image', "url('http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg')");
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
 
     });
 </script>
