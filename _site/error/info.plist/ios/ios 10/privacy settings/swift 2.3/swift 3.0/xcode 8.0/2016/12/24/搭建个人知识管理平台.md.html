@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>iOS10请求隐私权限的设置 - Info.plist</title>
+    <meta name="description"
+          content="在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，Apple拓展了隐私控制域，你必须在Info.plist文件中对所有需要访问的隐私数据作出声明。">
+
+    <link rel="canonical" href="http://localhost:4000/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0.md.html">
+    <link rel="alternate" type="application/rss+xml" title="A Place to Write Things" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="liuwei.co">
+            <span class="octicon octicon-light-bulb"></span> liuwei.co
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="iOS10请求隐私权限的设置 - Info.plist">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>iOS10请求隐私权限的设置 - Info.plist</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/12/24
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-12 markdown-body">
+
+            <p>在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，Apple拓展了隐私控制域，你必须在<code class="highlighter-rouge">Info.plist</code>文件中对所有需要访问的隐私数据作出声明。</p>
+
+<p><img src="/assets/images/20161224/ios10.png" alt="iOS 10 Priacy Setting" /></p>
+
+<h5 id="frameworkinfoplistprivacy-key">哪些<code class="highlighter-rouge">framework</code>在<code class="highlighter-rouge">Info.plist</code>中有<code class="highlighter-rouge">privacy key</code>：</h5>
+
+<p>Calendar , Contact , Reminder , Photo , Bluetooth Sharing , Microphone , Camera , Location , Heath , HomeKit , Media Library , Motion , CallKit , Speech Recognition , SiriKit , TV Provider.</p>
+
+<h5 id="privacy-key">如果不提供<code class="highlighter-rouge">privacy key</code>会报什么错误：</h5>
+
+<p>如果你不在<code class="highlighter-rouge">Info.plist</code>中提供指定的<code class="highlighter-rouge">privacy key</code>，你的应用程序会没有任何商量余地的直接崩溃！以下是崩溃日志：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>The app has crashed because it attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain an NSCalendarsUsageDescription key with a string value explaining to the user how the app user how the app uses this data.
+</code></pre>
+</div>
+
+<h5 id="section">如何解决这个错误呢:</h5>
+
+<p>当然是根据你相应的请求在Info.pist中给出相应的privacy key啦。</p>
+
+<p><img src="/assets/images/20161224/privacykeys.png" alt="iOS 10 Priacy Setting" /></p>
+
+<p><strong><code class="highlighter-rouge">Calendar :</code></strong><br />
+Key      :  Privacy - Calendars Usage Description    <br />
+Value  :  $(PRODUCT_NAME) calendar events</p>
+
+<p><strong><code class="highlighter-rouge">Reminder :</code></strong><br />
+Key      :   Privacy - Reminders Usage Description    <br />
+Value  :   $(PRODUCT_NAME) reminder use</p>
+
+<p><strong><code class="highlighter-rouge">Contact :</code></strong><br />
+Key       :   Privacy - Contacts Usage Description     <br />
+Value    :  $(PRODUCT_NAME) contact use</p>
+
+<p><strong><code class="highlighter-rouge">Photo :</code></strong><br />
+Key       :  Privacy - Photo Library Usage Description    <br />
+Value   :  $(PRODUCT_NAME) photo use</p>
+
+<p><strong><code class="highlighter-rouge">Bluetooth Sharing :</code></strong><br />
+Key       :  Privacy - Bluetooth Peripheral Usage Description     <br />
+Value   :  $(PRODUCT_NAME) Bluetooth Peripheral use</p>
+
+<p><strong><code class="highlighter-rouge">Microphone :</code></strong><br />
+Key        :  Privacy - Microphone Usage Description    <br />
+Value    :  $(PRODUCT_NAME) microphone use</p>
+
+<p><strong><code class="highlighter-rouge">Camera :</code></strong><br />
+Key       :  Privacy - Camera Usage Description   <br />
+Value   :  $(PRODUCT_NAME) camera use</p>
+
+<p><strong><code class="highlighter-rouge">Location :</code></strong><br />
+Key      :  Privacy - Location Always Usage Description   <br />
+Value  :  $(PRODUCT_NAME) location use</p>
+
+<p>Key       :  Privacy - Location When In Use Usage Description   <br />
+Value   :  $(PRODUCT_NAME) location use</p>
+
+<p><strong><code class="highlighter-rouge">Heath :</code></strong><br />
+Key      :  Privacy - Health Share Usage Description   <br />
+Value  :  $(PRODUCT_NAME) heath share use</p>
+
+<p>Key      :  Privacy - Health Update Usage Description   <br />
+Value  :  $(PRODUCT_NAME) heath update use</p>
+
+<p><strong><code class="highlighter-rouge">HomeKit :</code></strong><br />
+Key      :  Privacy - HomeKit Usage Description   <br />
+Value  :  $(PRODUCT_NAME) home kit use</p>
+
+<p><strong><code class="highlighter-rouge">Media Library :</code></strong><br />
+Key      :  Privacy - Media Library Usage Description   <br />
+Value  :  $(PRODUCT_NAME) media library use</p>
+
+<p><strong><code class="highlighter-rouge">Motion :</code></strong><br />
+Key      :  Privacy - Motion Usage Description   <br />
+Value  :  $(PRODUCT_NAME) motion use</p>
+
+<p><strong><code class="highlighter-rouge">Speech Recognition :</code></strong><br />
+Key      :  Privacy - Speech Recognition Usage Description   <br />
+Value  :  $(PRODUCT_NAME) speech use</p>
+
+<p><strong><code class="highlighter-rouge">SiriKit  : </code></strong><br />
+Key      :  Privacy - Siri Usage Description  <br />
+Value  :  $(PRODUCT_NAME) siri use</p>
+
+<p><strong><code class="highlighter-rouge">TV Provider : </code></strong><br />
+Key      :  Privacy - TV Provider Usage Description   <br />
+Value  :  $(PRODUCT_NAME) tvProvider use</p>
+
+<p>谢谢阅读</p>
+
+<hr />
+<blockquote>
+  <p>Announcement:<br />
+能力一般，水平有限，翻译不对的地方请硬看！如需查看原文请点下面链接。<br />
+<a href="https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html">https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html</a></p>
+</blockquote>
+
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//my_disque_settings/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'tracking_id', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>
