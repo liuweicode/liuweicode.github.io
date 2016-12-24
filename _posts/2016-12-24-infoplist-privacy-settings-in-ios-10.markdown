@@ -6,7 +6,7 @@ categories: [Error, Info.plist, iOS, iOS 10, Privacy Settings, Swift 2.3, Swift 
 no-post-nav: true
 ---
 
-在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，Apple拓展了隐私控制域，你必须在`Info.plist`文件中对所有需要访问的隐私数据作出声明。
+在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，苹果公司加强了对隐私控制的审查，你必须在`Info.plist`文件中对所有需要访问的隐私数据作出声明。
 
 ![Image](/assets/images/20161224/ios10.png)
 
