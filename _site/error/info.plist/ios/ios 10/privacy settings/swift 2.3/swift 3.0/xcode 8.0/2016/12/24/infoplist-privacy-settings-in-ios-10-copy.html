@@ -11,10 +11,10 @@
 
     <title>iOS10请求隐私权限的设置 - Info.plist</title>
     <meta name="description"
-          content="在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，Apple拓展了隐私控制域，你必须在Info.plist文件中对所有需要访问的隐私数据作出声明。">
+          content="在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，苹果公司加强了对隐私控制的审查，你必须在Info.plist文件中对所有需要访问的隐私数据作出声明。">
 
-    <link rel="canonical" href="http://localhost:4000/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10-copy.html">
-    <link rel="alternate" type="application/rss+xml" title="A Place to Write Things" href="http://localhost:4000/feed.xml">
+    <link rel="canonical" href="http://liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10-copy.html">
+    <link rel="alternate" type="application/rss+xml" title="A place to write things" href="http://liuwei.co/feed.xml">
 
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -46,7 +46,7 @@
     <header class="site-header">
     <div class="container">
         <a id="site-header-brand" href="/" title="liuwei.co">
-            <span class="octicon octicon-light-bulb"></span> liuwei.co
+            <span class="octicon octicon-mention"></span> liuwei.co
         </a>
         <nav class="site-header-nav" role="navigation">
             
@@ -120,9 +120,9 @@
         
         <div class="col-md-12 markdown-body">
 
-            <p>在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，Apple拓展了隐私控制域，你必须在<code class="highlighter-rouge">Info.plist</code>文件中对所有需要访问的隐私数据作出声明。</p>
+            <p>在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，苹果公司加强了对隐私控制的审查，你必须在<code class="highlighter-rouge">Info.plist</code>文件中对所有需要访问的隐私数据作出声明。</p>
 
-<p><img src="/assets/images/20161224/ios10.png" alt="iOS 10 Priacy Setting" /></p>
+<p><img src="/assets/images/20161224/ios10.png" alt="Image" /></p>
 
 <h5 id="frameworkinfoplistprivacy-key">哪些<code class="highlighter-rouge">framework</code>在<code class="highlighter-rouge">Info.plist</code>中有<code class="highlighter-rouge">privacy key</code>：</h5>
 
@@ -140,7 +140,7 @@
 
 <p>当然是根据你相应的请求在Info.pist中给出相应的privacy key啦。</p>
 
-<p><img src="/assets/images/20161224/privacykeys.png" alt="iOS 10 Priacy Setting" /></p>
+<p><img src="/assets/images/20161224/privacykeys.png" alt="Image" /></p>
 
 <p><strong><code class="highlighter-rouge">Calendar :</code></strong><br />
 Key      :  Privacy - Calendars Usage Description    <br />
@@ -210,42 +210,21 @@ Value  :  $(PRODUCT_NAME) tvProvider use</p>
 
 <p>谢谢阅读</p>
 
+<p>原文链接: <a href="https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html">https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html</a></p>
+
 <hr />
 <blockquote>
-  <p>Announcement:<br />
-能力一般，水平有限，翻译不对的地方请硬看！如需查看原文请点下面链接。<br />
-<a href="https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html">https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html</a></p>
+  <p><strong><em>Announcement:</em></strong><br />
+能力一般，水平有限，翻译不到位的地方请硬看！<br />
+如果实在看不下去请关闭网页，深呼吸，抑或是抽根烟，以解心中不快。<br />
+如果还觉得不爽，欢迎来<a href="https://twitter.com/AwesomeEpisode">twitter</a>上找我互相伤害。<br />
+本文翻译遵照 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC">CC 协议</a>，如果侵犯到了您的权益，请及时发Email(i#liuwei.co)联系我，谢谢！</p>
 </blockquote>
 
 
 
             <!-- Comments -->
             
-<div class="comments">
-    <div id="disqus_thread"></div>
-    <script>
-        /**
-         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-         */
-        /*
-         var disqus_config = function () {
-         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-         };
-         */
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-
-            s.src = '//my_disque_settings/embed.js';
-
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-</div>
-
 
         </div>
         
@@ -266,7 +245,7 @@ Value  :  $(PRODUCT_NAME) tvProvider use</p>
             Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
         </div>
 
-        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+        <a href="https://github.com/liuweicode" target="_blank" aria-label="view source code">
             <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
         </a>
 
@@ -284,20 +263,6 @@ Value  :  $(PRODUCT_NAME) tvProvider use</p>
 
     
 
-    
-    <!-- Google Analytics -->
-    <div style="display:none">
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'tracking_id', 'auto');
-            ga('send', 'pageview');
-
-        </script>
-    </div>
     
 
 </footer>

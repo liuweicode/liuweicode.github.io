@@ -1,17 +1,281 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A Place to Write Things</title>
+    <title>A place to write things</title>
     <description>Just writing</description>
-    <link>http://liuwei.co/</link>
-    <atom:link href="http://liuwei.co/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 25 Dec 2016 00:14:21 +0800</pubDate>
-    <lastBuildDate>Sun, 25 Dec 2016 00:14:21 +0800</lastBuildDate>
+    <link>http://127.0.0.1:4000/</link>
+    <atom:link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 28 Dec 2016 23:07:47 +0800</pubDate>
+    <lastBuildDate>Wed, 28 Dec 2016 23:07:47 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
+        <title>PHP 命名空间说明</title>
+        <description>&lt;p&gt;在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，没个新的特性都有它存在的意义，让我们看看为什么PHP的&lt;code class=&quot;highlighter-rouge&quot;&gt;namespace&lt;/code&gt;有利于我们的应用程序。&lt;/p&gt;
+
+&lt;p&gt;在PHP中，你不能同时定义一个相同名字的类，类名必须唯一。那么问题来了，如果你使用了一个第三方的库，这个库中有一个&lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt;类，那么你在创建你自己的类时就不能命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt;了。这就尴尬了，因为&lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt;这个名字太普遍了，对吧？&lt;/p&gt;
+
+&lt;p&gt;PHP命名空间帮我们解决了这个问题，实际上我们想创建多少个&lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt;类就可以创建多少个，不仅仅如此，我们也可以使用命名空间是我们的代码分门别类，或者显示组织结构。&lt;/p&gt;
+
+&lt;p&gt;让我们看一眼一个正经的类(类的确是类，正不正经我不知道)，嗯，我知道你曾经这么使用过，相信我这一次吧。（仿佛看见了作者神秘的微笑…）&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;全局命名空间&lt;/h3&gt;
+
+&lt;p&gt;这是一个极其简单的类.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+// app/models/Eddard.php
+
+class Eddard
+{
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;没有什么特别的，如果我们要使用上面这个类，我们可以这样做：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+// app/routes.php
+
+$eddard = new Eddard();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;黛尔, 我感觉我的智商受到了极大的侮辱…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;好吧，开玩笑啦，言归正传，我们可以想象这个类是在一个全局的&lt;code class=&quot;highlighter-rouge&quot;&gt;global&lt;/code&gt;命名空间中。我不清楚这样说是否正确，但是对我而言貌似还是比较合适的，它本质是说，那个类没有命名空间。它只是一个标准的类而已。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;简单的命名空间&lt;/h3&gt;
+
+&lt;p&gt;让我们在之前的那个’全局的Eddard’类旁边创建另一个类:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+namespace Stark;
+
+// app/models/another.php
+
+class Eddard
+{
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这里我们创建了另一个Eddard类，仅仅做了一个小小的修改。添加了一个&lt;code class=&quot;highlighter-rouge&quot;&gt;namespace&lt;/code&gt;指令，在&lt;code class=&quot;highlighter-rouge&quot;&gt;namespace Stark&lt;/code&gt;这一行。&lt;code class=&quot;highlighter-rouge&quot;&gt;namespace&lt;/code&gt;指令告诉PHP我们所有写的代码都是相对于&lt;code class=&quot;highlighter-rouge&quot;&gt;Stark&lt;/code&gt;命名空间下的。它也表示所有在这个文件中创建的类将被包含在’Stark’命名空间里。&lt;/p&gt;
+
+&lt;p&gt;现在，我们再次使用’Stark’类：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+// app/routes.php
+
+$eddard = new Eddard();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;再一次，我们获取到了上个章节创建的类的实例，不是在’Stark’命名空间下的那个实例。下面让我们创建一个’Stark’命名空间下的’Eddard’实例。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+// app/routes.php
+
+$eddard = new Stark\Eddard();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;我们可以采用在命名空间名称中加前缀的方式实例化某个命名空间下的类，在’Stark’和’Eddard’之间用一个反斜杠(\)来分隔，现在我们有了一个’Stark’命名空间下的’Eddard’实例，腻害了，我的哥！&lt;/p&gt;
+
+&lt;p&gt;你需要注意的是，命名空间可以有无限个层级，比如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;This\Namespace\And\Class\Combination\Is\Silly\But\Works
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;相对论&lt;/h3&gt;
+
+&lt;p&gt;还记得我曾经告诉过你的，PHP总是运行与当前命名空间相关的文件，好的，下面让我们看看这个特性：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+namespace Stark;
+
+// app/routes.php
+
+$eddard = new Eddard();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;像上面这个实例化的例子，我们添加了命名空间指令，我们将PHP脚本移到了’Stark’命名空间下，现在由于我们在同一个命名空间下，这次我们获取的是’Stark’命名空间下的’Eddard’实例。不用我说了吧，你懂的。&lt;/p&gt;
+
+&lt;p&gt;现在我们改变了命名空间，那么，问题来了，你知道是什么问题吗？那就是我们怎么实例化最初的那个’Eddard’类呢，就是那个没有命名空间的，我称它为’全局命名空间’的那个’Eddard’类。&lt;/p&gt;
+
+&lt;p&gt;幸运的是，PHP有一个引用全局命名空间下的类的方式，我们只需要简单的加上反斜杠(\)前缀即可：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+// app/routes.php
+
+$eddard = new \Eddard();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;有了这个主反斜杠(\),PHP知道引用的是全局命名空间下的’Eddard’类，所以PHP会实例化这个类。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;原文中 “Use your imagine a little, like how Barney showed you. “这句话我不知道怎么翻译，我Google了一下，Barney应该是美国比较流行的一个电视剧里面的紫色小恐龙。作者应该是想说再多想一点，正如Barney教会你的。当然这是我瞎猜的，如果猜错了，来咬我啊～&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20161228/Barney&amp;amp;Friends.jpeg&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;咳，咳，当然这并不影响我继续翻译，试想一下，如果我们有一个&lt;code class=&quot;highlighter-rouge&quot;&gt;Edmure&lt;/code&gt;类在&lt;code class=&quot;highlighter-rouge&quot;&gt;Tully&lt;/code&gt;命名空间中，我们想在’Stark’命名空间中如何调用？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+namespace Stark;
+
+// app/routes.php
+
+$edmure = new \Tully\Edmure();
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;再一次用到了斜杠前缀(\)，我们需要使用斜杠(\)前缀，让程序会到全局命名空间中，然后再从’Tully’命名空间实例化该类。&lt;/p&gt;
+
+&lt;p&gt;每一次使用完整的层级路径来引用相关的类未免有点折腾人了，幸运的是，有一个不错的快捷方式，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;use&lt;/code&gt;语句，让我们看看下面的例子：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+namespace Stark;
+
+use Tully\Edmure;
+
+// app/routes.php
+
+$edmure = new Edmure();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;use&lt;/code&gt;语句，我们把一个类引入到当前的命名空间，这样我们在实例化类的时候只需要提供名字就可以了。现在，不要问我为什么它不需要使用反斜杠做前缀，因为我也不知道。这是我所知道的唯一例外，我很抱歉！如果你愿意你可以加上前缀，不过你不需要这么做。&lt;/p&gt;
+
+&lt;p&gt;为了弥补这个讨厌的不一致，让我展示给你另外一个巧妙的方式，我们可以给我们导入的类起一个别名。正如我们在PHP playground做的一样，代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+namespace Stark;
+
+use Tully\Brynden as Blackfish;
+
+// app/routes.php
+
+$brynden = new Blackfish();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;采用&lt;code class=&quot;highlighter-rouge&quot;&gt;as&lt;/code&gt;关键字，我们给了’Tully/Brynden’类一个叫做’Blackfish’的别名，巧妙的方式，对吧！而且，如果你需要在同一个命名空间下使用两个相同类名的类，这也很有帮助。比如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+namespace Targaryen;
+
+use Dothraki\Daenerys as Khaleesi;
+
+// app/routes.php
+
+class Daenerys
+{
+
+}
+
+// Targaryen\Daenerys
+$daenerys = new Daenerys();
+
+// Dothraki\Daenerys
+$khaleesi = new Khaleesi();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;通过给’Dothraki’命名空间下的’Daenerys’类一个别名’Khaleesi’,我们可以仅仅使用名称就可以调用两个’Daenerys’类了，而不需要加上冗长的命名空间层级。很方便使用，不是吗？这就是为了避免冲突，分门别类的目的。&lt;/p&gt;
+
+&lt;p&gt;你想要&lt;code class=&quot;highlighter-rouge&quot;&gt;use&lt;/code&gt;多少个类，就可以&lt;code class=&quot;highlighter-rouge&quot;&gt;use&lt;/code&gt;多少个类：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+namespace Targaryen;
+
+use Dothraki\Daenerys;
+use Stark\Eddard;
+use Lannister\Tyrion;
+use Snow\Jon as Bastard;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;结构&lt;/h3&gt;
+
+&lt;p&gt;命名空间不仅仅只是关于避免冲突，我们可以用它来组织代码结构和所有者，让我用另一个栗子来解释一下。&lt;/p&gt;
+
+&lt;p&gt;假如我们想创建一个开源库，我喜欢别人使用我的代码，那感觉超屌！问题是，我不想给使用我的库的兄弟们增添有关类名冲突的麻烦，那将是不好使用体验。为了让开源代码友好，易于嵌入，更独立，下面是我如何避免解决这个问题的：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dayle\Blog\Content\Post
+Dayle\Blog\Content\Page
+Dayle\Blog\Tag
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;todo&quot;&gt;// TODO&lt;/h1&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Vocabulary:&lt;br /&gt;
+None the less&lt;br /&gt;
+purpose&lt;br /&gt;
+benefit&lt;br /&gt;
+convenient&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;neat&lt;/code&gt;:&lt;br /&gt;
+essentially&lt;br /&gt;
+minor&lt;br /&gt;
+addition&lt;br /&gt;
+directive&lt;br /&gt;
+informs&lt;br /&gt;
+instantiate&lt;br /&gt;
+The Theory of Relativity&lt;br /&gt;
+tiring&lt;br /&gt;
+backward slash&lt;br /&gt;
+horrible &lt;br /&gt;
+inconsistency&lt;br /&gt;
+purpose&lt;br /&gt;
+faction&lt;br /&gt;
+problematic&lt;br /&gt;
+terribly&lt;br /&gt;
+inconvenient&lt;br /&gt;
+hassle&lt;/p&gt;
+
+&lt;p&gt;原文链接: &lt;a href=&quot;https://daylerees.com/php-namespaces-explained/&quot;&gt;https://daylerees.com/php-namespaces-explained/&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;Announcement:&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+能力一般，水平有限，翻译不到位的地方请硬看！&lt;br /&gt;
+如果实在看不下去请关闭网页，深呼吸，抑或是抽根烟，以解心中不快。&lt;br /&gt;
+如果还觉得不爽，欢迎来&lt;a href=&quot;https://twitter.com/AwesomeEpisode&quot;&gt;twitter&lt;/a&gt;上找我互相伤害。&lt;br /&gt;
+本文翻译遵照 &lt;a href=&quot;https://zh.wikipedia.org/wiki/Wikipedia:CC&quot;&gt;CC 协议&lt;/a&gt;，如果侵犯到了您的权益，请及时发Email(i#liuwei.co)联系我，谢谢！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Wed, 28 Dec 2016 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</guid>
+        
+        
+        <category>PHP</category>
+        
+        <category>namespaces</category>
+        
+        <category>命名空间</category>
+        
+      </item>
+    
+      <item>
         <title>iOS10请求隐私权限的设置 - Info.plist</title>
-        <description>&lt;p&gt;在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，Apple拓展了隐私控制域，你必须在&lt;code class=&quot;highlighter-rouge&quot;&gt;Info.plist&lt;/code&gt;文件中对所有需要访问的隐私数据作出声明。&lt;/p&gt;
+        <description>&lt;p&gt;在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，苹果公司加强了对隐私控制的审查，你必须在&lt;code class=&quot;highlighter-rouge&quot;&gt;Info.plist&lt;/code&gt;文件中对所有需要访问的隐私数据作出声明。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/20161224/ios10.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
 
@@ -114,8 +378,8 @@ Value  :  $(PRODUCT_NAME) tvProvider use&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 24 Dec 2016 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</link>
-        <guid isPermaLink="true">http://liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</guid>
+        <link>http://127.0.0.1:4000/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</guid>
         
         
         <category>Error</category>
@@ -508,8 +772,8 @@ func scrollViewDidZoom(scrollView: UIScrollView!) {
 &lt;p&gt;原文：&lt;a href=&quot;http://www.raywenderlich.com/76436/use-uiscrollview-scroll-zoom-content-swift&quot;&gt;UIScrollView Tutorial: Getting Started&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</link>
-        <guid isPermaLink="true">http://liuwei.co/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</guid>
+        <link>http://127.0.0.1:4000/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</guid>
         
         
         <category>tutorial</category>
@@ -559,8 +823,8 @@ func scrollViewDidZoom(scrollView: UIScrollView!) {
 
 </description>
         <pubDate>Sun, 16 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</link>
-        <guid isPermaLink="true">http://liuwei.co/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</guid>
+        <link>http://127.0.0.1:4000/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</guid>
         
         
         <category>trick</category>
@@ -713,8 +977,8 @@ forever start -e error.log bin/www
 
 </description>
         <pubDate>Sun, 16 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</link>
-        <guid isPermaLink="true">http://liuwei.co/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</guid>
+        <link>http://127.0.0.1:4000/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</guid>
         
         
         <category>Wiki</category>

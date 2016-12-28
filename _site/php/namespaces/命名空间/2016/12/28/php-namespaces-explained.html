@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>PHP 命名空间说明</title>
+    <meta name="description"
+          content="在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，没个新的特性都有它存在的意义，让我们看看为什么PHP的namespace有利于我们的应用程序。">
+
+    <link rel="canonical" href="http://127.0.0.1:4000/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html">
+    <link rel="alternate" type="application/rss+xml" title="A place to write things" href="http://127.0.0.1:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="liuwei.co">
+            <span class="octicon octicon-mention"></span> liuwei.co
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="PHP 命名空间说明">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>PHP 命名空间说明</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/12/28
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-12 markdown-body">
+
+            <p>在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，没个新的特性都有它存在的意义，让我们看看为什么PHP的<code class="highlighter-rouge">namespace</code>有利于我们的应用程序。</p>
+
+<p>在PHP中，你不能同时定义一个相同名字的类，类名必须唯一。那么问题来了，如果你使用了一个第三方的库，这个库中有一个<code class="highlighter-rouge">User</code>类，那么你在创建你自己的类时就不能命名为<code class="highlighter-rouge">User</code>了。这就尴尬了，因为<code class="highlighter-rouge">User</code>这个名字太普遍了，对吧？</p>
+
+<p>PHP命名空间帮我们解决了这个问题，实际上我们想创建多少个<code class="highlighter-rouge">User</code>类就可以创建多少个，不仅仅如此，我们也可以使用命名空间是我们的代码分门别类，或者显示组织结构。</p>
+
+<p>让我们看一眼一个正经的类(类的确是类，正不正经我不知道)，嗯，我知道你曾经这么使用过，相信我这一次吧。（仿佛看见了作者神秘的微笑…）</p>
+
+<h3 id="section">全局命名空间</h3>
+
+<p>这是一个极其简单的类.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+// app/models/Eddard.php
+
+class Eddard
+{
+
+}
+</code></pre>
+</div>
+<p>没有什么特别的，如果我们要使用上面这个类，我们可以这样做：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+// app/routes.php
+
+$eddard = new Eddard();
+</code></pre>
+</div>
+
+<blockquote>
+  <p>黛尔, 我感觉我的智商受到了极大的侮辱…</p>
+</blockquote>
+
+<p>好吧，开玩笑啦，言归正传，我们可以想象这个类是在一个全局的<code class="highlighter-rouge">global</code>命名空间中。我不清楚这样说是否正确，但是对我而言貌似还是比较合适的，它本质是说，那个类没有命名空间。它只是一个标准的类而已。</p>
+
+<h3 id="section-1">简单的命名空间</h3>
+
+<p>让我们在之前的那个’全局的Eddard’类旁边创建另一个类:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+namespace Stark;
+
+// app/models/another.php
+
+class Eddard
+{
+
+}
+</code></pre>
+</div>
+
+<p>这里我们创建了另一个Eddard类，仅仅做了一个小小的修改。添加了一个<code class="highlighter-rouge">namespace</code>指令，在<code class="highlighter-rouge">namespace Stark</code>这一行。<code class="highlighter-rouge">namespace</code>指令告诉PHP我们所有写的代码都是相对于<code class="highlighter-rouge">Stark</code>命名空间下的。它也表示所有在这个文件中创建的类将被包含在’Stark’命名空间里。</p>
+
+<p>现在，我们再次使用’Stark’类：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+// app/routes.php
+
+$eddard = new Eddard();
+</code></pre>
+</div>
+
+<p>再一次，我们获取到了上个章节创建的类的实例，不是在’Stark’命名空间下的那个实例。下面让我们创建一个’Stark’命名空间下的’Eddard’实例。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+// app/routes.php
+
+$eddard = new Stark\Eddard();
+</code></pre>
+</div>
+<p>我们可以采用在命名空间名称中加前缀的方式实例化某个命名空间下的类，在’Stark’和’Eddard’之间用一个反斜杠(\)来分隔，现在我们有了一个’Stark’命名空间下的’Eddard’实例，腻害了，我的哥！</p>
+
+<p>你需要注意的是，命名空间可以有无限个层级，比如：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>This\Namespace\And\Class\Combination\Is\Silly\But\Works
+</code></pre>
+</div>
+
+<h3 id="section-2">相对论</h3>
+
+<p>还记得我曾经告诉过你的，PHP总是运行与当前命名空间相关的文件，好的，下面让我们看看这个特性：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+namespace Stark;
+
+// app/routes.php
+
+$eddard = new Eddard();
+</code></pre>
+</div>
+<p>像上面这个实例化的例子，我们添加了命名空间指令，我们将PHP脚本移到了’Stark’命名空间下，现在由于我们在同一个命名空间下，这次我们获取的是’Stark’命名空间下的’Eddard’实例。不用我说了吧，你懂的。</p>
+
+<p>现在我们改变了命名空间，那么，问题来了，你知道是什么问题吗？那就是我们怎么实例化最初的那个’Eddard’类呢，就是那个没有命名空间的，我称它为’全局命名空间’的那个’Eddard’类。</p>
+
+<p>幸运的是，PHP有一个引用全局命名空间下的类的方式，我们只需要简单的加上反斜杠(\)前缀即可：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+// app/routes.php
+
+$eddard = new \Eddard();
+</code></pre>
+</div>
+<p>有了这个主反斜杠(\),PHP知道引用的是全局命名空间下的’Eddard’类，所以PHP会实例化这个类。</p>
+
+<blockquote>
+  <p>原文中 “Use your imagine a little, like how Barney showed you. “这句话我不知道怎么翻译，我Google了一下，Barney应该是美国比较流行的一个电视剧里面的紫色小恐龙。作者应该是想说再多想一点，正如Barney教会你的。当然这是我瞎猜的，如果猜错了，来咬我啊～</p>
+</blockquote>
+
+<p><img src="/assets/images/20161228/Barney&amp;Friends.jpeg" alt="Image" /></p>
+
+<p>咳，咳，当然这并不影响我继续翻译，试想一下，如果我们有一个<code class="highlighter-rouge">Edmure</code>类在<code class="highlighter-rouge">Tully</code>命名空间中，我们想在’Stark’命名空间中如何调用？</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+namespace Stark;
+
+// app/routes.php
+
+$edmure = new \Tully\Edmure();
+
+</code></pre>
+</div>
+<p>再一次用到了斜杠前缀(\)，我们需要使用斜杠(\)前缀，让程序会到全局命名空间中，然后再从’Tully’命名空间实例化该类。</p>
+
+<p>每一次使用完整的层级路径来引用相关的类未免有点折腾人了，幸运的是，有一个不错的快捷方式，使用<code class="highlighter-rouge">use</code>语句，让我们看看下面的例子：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+namespace Stark;
+
+use Tully\Edmure;
+
+// app/routes.php
+
+$edmure = new Edmure();
+</code></pre>
+</div>
+<p>使用<code class="highlighter-rouge">use</code>语句，我们把一个类引入到当前的命名空间，这样我们在实例化类的时候只需要提供名字就可以了。现在，不要问我为什么它不需要使用反斜杠做前缀，因为我也不知道。这是我所知道的唯一例外，我很抱歉！如果你愿意你可以加上前缀，不过你不需要这么做。</p>
+
+<p>为了弥补这个讨厌的不一致，让我展示给你另外一个巧妙的方式，我们可以给我们导入的类起一个别名。正如我们在PHP playground做的一样，代码如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+namespace Stark;
+
+use Tully\Brynden as Blackfish;
+
+// app/routes.php
+
+$brynden = new Blackfish();
+</code></pre>
+</div>
+
+<p>采用<code class="highlighter-rouge">as</code>关键字，我们给了’Tully/Brynden’类一个叫做’Blackfish’的别名，巧妙的方式，对吧！而且，如果你需要在同一个命名空间下使用两个相同类名的类，这也很有帮助。比如：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+namespace Targaryen;
+
+use Dothraki\Daenerys as Khaleesi;
+
+// app/routes.php
+
+class Daenerys
+{
+
+}
+
+// Targaryen\Daenerys
+$daenerys = new Daenerys();
+
+// Dothraki\Daenerys
+$khaleesi = new Khaleesi();
+</code></pre>
+</div>
+<p>通过给’Dothraki’命名空间下的’Daenerys’类一个别名’Khaleesi’,我们可以仅仅使用名称就可以调用两个’Daenerys’类了，而不需要加上冗长的命名空间层级。很方便使用，不是吗？这就是为了避免冲突，分门别类的目的。</p>
+
+<p>你想要<code class="highlighter-rouge">use</code>多少个类，就可以<code class="highlighter-rouge">use</code>多少个类：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+namespace Targaryen;
+
+use Dothraki\Daenerys;
+use Stark\Eddard;
+use Lannister\Tyrion;
+use Snow\Jon as Bastard;
+</code></pre>
+</div>
+
+<h3 id="section-3">结构</h3>
+
+<p>命名空间不仅仅只是关于避免冲突，我们可以用它来组织代码结构和所有者，让我用另一个栗子来解释一下。</p>
+
+<p>假如我们想创建一个开源库，我喜欢别人使用我的代码，那感觉超屌！问题是，我不想给使用我的库的兄弟们增添有关类名冲突的麻烦，那将是不好使用体验。为了让开源代码友好，易于嵌入，更独立，下面是我如何避免解决这个问题的：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Dayle\Blog\Content\Post
+Dayle\Blog\Content\Page
+Dayle\Blog\Tag
+</code></pre>
+</div>
+
+<h1 id="todo">// TODO</h1>
+
+<hr />
+<p>Vocabulary:<br />
+None the less<br />
+purpose<br />
+benefit<br />
+convenient<br />
+<code class="highlighter-rouge">neat</code>:<br />
+essentially<br />
+minor<br />
+addition<br />
+directive<br />
+informs<br />
+instantiate<br />
+The Theory of Relativity<br />
+tiring<br />
+backward slash<br />
+horrible <br />
+inconsistency<br />
+purpose<br />
+faction<br />
+problematic<br />
+terribly<br />
+inconvenient<br />
+hassle</p>
+
+<p>原文链接: <a href="https://daylerees.com/php-namespaces-explained/">https://daylerees.com/php-namespaces-explained/</a></p>
+
+<hr />
+<blockquote>
+  <p><strong><em>Announcement:</em></strong><br />
+能力一般，水平有限，翻译不到位的地方请硬看！<br />
+如果实在看不下去请关闭网页，深呼吸，抑或是抽根烟，以解心中不快。<br />
+如果还觉得不爽，欢迎来<a href="https://twitter.com/AwesomeEpisode">twitter</a>上找我互相伤害。<br />
+本文翻译遵照 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC">CC 协议</a>，如果侵犯到了您的权益，请及时发Email(i#liuwei.co)联系我，谢谢！</p>
+</blockquote>
+
+
+
+            <!-- Comments -->
+            
+
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/liuweicode" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+
+</footer>
+
+
+    </body>
+
+</html>

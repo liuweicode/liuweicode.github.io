@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: A Place to Write Things # ex. I m Chuan
+title: A place to write things # ex. I m Chuan
 name: liuwei.co # ex. DONGChuan
 email: i@liuwei.co
 location: Shanghai # ex. Nice, France
@@ -21,7 +21,8 @@ twitter_name: liuweisays
 # The base hostname & protocol for your site
 # For local test, please use http://localhost:4000
 # For production, use your github page url. ex. http://dongchuan.github.io
-url: http://liuwei.co
+#url: http://liuwei.co
+url: http://127.0.0.1:4000
 
 ## Gem
 gems:
