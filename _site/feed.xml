@@ -3,10 +3,10 @@
   <channel>
     <title>A place to write things</title>
     <description>Just writing</description>
-    <link>http://127.0.0.1:4000/</link>
-    <atom:link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 29 Dec 2016 08:07:23 +0800</pubDate>
-    <lastBuildDate>Thu, 29 Dec 2016 08:07:23 +0800</lastBuildDate>
+    <link>http://liuwei.co/</link>
+    <atom:link href="http://liuwei.co/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 29 Dec 2016 08:43:46 +0800</pubDate>
+    <lastBuildDate>Thu, 29 Dec 2016 08:43:46 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -311,8 +311,8 @@ prove&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 28 Dec 2016 00:00:00 +0800</pubDate>
-        <link>http://127.0.0.1:4000/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</guid>
+        <link>http://liuwei.co/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</link>
+        <guid isPermaLink="true">http://liuwei.co/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</guid>
         
         
         <category>PHP</category>
@@ -428,8 +428,8 @@ Value  :  $(PRODUCT_NAME) tvProvider use&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 24 Dec 2016 00:00:00 +0800</pubDate>
-        <link>http://127.0.0.1:4000/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</guid>
+        <link>http://liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</link>
+        <guid isPermaLink="true">http://liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</guid>
         
         
         <category>Error</category>
@@ -822,8 +822,8 @@ func scrollViewDidZoom(scrollView: UIScrollView!) {
 &lt;p&gt;原文：&lt;a href=&quot;http://www.raywenderlich.com/76436/use-uiscrollview-scroll-zoom-content-swift&quot;&gt;UIScrollView Tutorial: Getting Started&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://127.0.0.1:4000/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</guid>
+        <link>http://liuwei.co/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</link>
+        <guid isPermaLink="true">http://liuwei.co/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</guid>
         
         
         <category>tutorial</category>
@@ -873,8 +873,8 @@ func scrollViewDidZoom(scrollView: UIScrollView!) {
 
 </description>
         <pubDate>Sun, 16 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://127.0.0.1:4000/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</guid>
+        <link>http://liuwei.co/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</link>
+        <guid isPermaLink="true">http://liuwei.co/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</guid>
         
         
         <category>trick</category>
@@ -1027,8 +1027,8 @@ forever start -e error.log bin/www
 
 </description>
         <pubDate>Sun, 16 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://127.0.0.1:4000/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</guid>
+        <link>http://liuwei.co/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</link>
+        <guid isPermaLink="true">http://liuwei.co/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</guid>
         
         
         <category>Wiki</category>
