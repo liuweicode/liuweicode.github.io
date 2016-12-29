@@ -11,7 +11,7 @@
 
     <title>PHP 命名空间说明</title>
     <meta name="description"
-          content="在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，没个新的特性都有它存在的意义，让我们看看为什么PHP的namespace有利于我们的应用程序。">
+          content="在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，每个新的特性都有它存在的意义，让我们看看为什么PHP的namespace有利于我们的应用程序。">
 
     <link rel="canonical" href="http://127.0.0.1:4000/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html">
     <link rel="alternate" type="application/rss+xml" title="A place to write things" href="http://127.0.0.1:4000/feed.xml">
@@ -120,7 +120,7 @@
         
         <div class="col-md-12 markdown-body">
 
-            <p>在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，没个新的特性都有它存在的意义，让我们看看为什么PHP的<code class="highlighter-rouge">namespace</code>有利于我们的应用程序。</p>
+            <p>在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，每个新的特性都有它存在的意义，让我们看看为什么PHP的<code class="highlighter-rouge">namespace</code>有利于我们的应用程序。</p>
 
 <p>在PHP中，你不能同时定义一个相同名字的类，类名必须唯一。那么问题来了，如果你使用了一个第三方的库，这个库中有一个<code class="highlighter-rouge">User</code>类，那么你在创建你自己的类时就不能命名为<code class="highlighter-rouge">User</code>了。这就尴尬了，因为<code class="highlighter-rouge">User</code>这个名字太普遍了，对吧？</p>
 
@@ -330,15 +330,61 @@ Dayle\Blog\Tag
 </code></pre>
 </div>
 
-<h1 id="todo">// TODO</h1>
+<p>这里我用了我的名字作为命名空间来存放源代码，对于使用我的库的人来说也是这么分割我的代码的，在基命名空间<code class="highlighter-rouge">Dayle</code>下，我创建了一些子命名空间来组织我程序的内部结构。</p>
+
+<p>在composer章节，你将学习到如何使用命名空间来简化你所定义的类，我墙裂推荐你看看这个有用的机制。</p>
+
+<h3 id="section-4">限制</h3>
+
+<p>实际上，起’限制’这个子标题，我感觉有些不妥，我所说的’限制’并不是一个真正的bug。</p>
+
+<p>你知道，在其他语言中，命名空间有相似的实现方式，当不同命名空间之间相互调用的时候，他们提供一个额外的特性来简化操作。</p>
+
+<p>拿Java来举栗吧，你可以使用通配符导入某个命名空间下的所有类，在Java中，<code class="highlighter-rouge">import</code>关键字相当于这里的<code class="highlighter-rouge">use</code>,并且它使用点(.)来分割嵌套的命名空间（Java中叫包），下面是个栗子：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import dayle.blog.*;
+</code></pre>
+</div>
+
+<p>这会导入’dayle.blog’包下的所有类。</p>
+
+<p>而在PHP中你做不到，你需要分别导入每一个类。抱歉，实际上，为什么我要说抱歉呢？去向PHP的内部组抱怨啊，不，你需要冷静点，他们已经给了我们许多很酷很有用的东西啦。</p>
+
+<p>然而这里有一个巧妙的技巧，想象我们有这个命名空间和类结构，正如之前的栗子：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Dayle\Blog\Content\Post
+Dayle\Blog\Content\Page
+Dayle\Blog\Tag
+</code></pre>
+</div>
+
+<p>我们可以给子命名空间起一个别名来使用它下面的类，下面是一个栗子：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+
+namespace Baratheon;
+
+use Dayle\Blog as Cms;
+
+// app/routes.php
+
+$post = new Cms\Content\Post;
+$page = new Cms\Content\Page;
+$tag  = new Cms\Tag;
+</code></pre>
+</div>
+<p>这对使用同一个命名空间下的许多类很有效，希望你喜欢！</p>
+
+<p>原文链接: <a href="https://daylerees.com/php-namespaces-explained/">https://daylerees.com/php-namespaces-explained/</a></p>
 
 <hr />
-<p>Vocabulary:<br />
-None the less<br />
+
+<h3 id="vocabulary">Vocabulary</h3>
+<p>None the less<br />
 purpose<br />
 benefit<br />
 convenient<br />
-<code class="highlighter-rouge">neat</code>:<br />
+neat:<br />
 essentially<br />
 minor<br />
 addition<br />
@@ -355,9 +401,13 @@ faction<br />
 problematic<br />
 terribly<br />
 inconvenient<br />
-hassle</p>
-
-<p>原文链接: <a href="https://daylerees.com/php-namespaces-explained/">https://daylerees.com/php-namespaces-explained/</a></p>
+hassle<br />
+mechanism<br />
+guilty<br />
+interacting<br />
+individually<br />
+gentle<br />
+prove</p>
 
 <hr />
 <blockquote>

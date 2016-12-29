@@ -5,13 +5,13 @@
     <description>Just writing</description>
     <link>http://127.0.0.1:4000/</link>
     <atom:link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 28 Dec 2016 23:07:47 +0800</pubDate>
-    <lastBuildDate>Wed, 28 Dec 2016 23:07:47 +0800</lastBuildDate>
+    <pubDate>Thu, 29 Dec 2016 08:07:23 +0800</pubDate>
+    <lastBuildDate>Thu, 29 Dec 2016 08:07:23 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>PHP 命名空间说明</title>
-        <description>&lt;p&gt;在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，没个新的特性都有它存在的意义，让我们看看为什么PHP的&lt;code class=&quot;highlighter-rouge&quot;&gt;namespace&lt;/code&gt;有利于我们的应用程序。&lt;/p&gt;
+        <description>&lt;p&gt;在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，每个新的特性都有它存在的意义，让我们看看为什么PHP的&lt;code class=&quot;highlighter-rouge&quot;&gt;namespace&lt;/code&gt;有利于我们的应用程序。&lt;/p&gt;
 
 &lt;p&gt;在PHP中，你不能同时定义一个相同名字的类，类名必须唯一。那么问题来了，如果你使用了一个第三方的库，这个库中有一个&lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt;类，那么你在创建你自己的类时就不能命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt;了。这就尴尬了，因为&lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt;这个名字太普遍了，对吧？&lt;/p&gt;
 
@@ -221,15 +221,61 @@ Dayle\Blog\Tag
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h1 id=&quot;todo&quot;&gt;// TODO&lt;/h1&gt;
+&lt;p&gt;这里我用了我的名字作为命名空间来存放源代码，对于使用我的库的人来说也是这么分割我的代码的，在基命名空间&lt;code class=&quot;highlighter-rouge&quot;&gt;Dayle&lt;/code&gt;下，我创建了一些子命名空间来组织我程序的内部结构。&lt;/p&gt;
+
+&lt;p&gt;在composer章节，你将学习到如何使用命名空间来简化你所定义的类，我墙裂推荐你看看这个有用的机制。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;限制&lt;/h3&gt;
+
+&lt;p&gt;实际上，起’限制’这个子标题，我感觉有些不妥，我所说的’限制’并不是一个真正的bug。&lt;/p&gt;
+
+&lt;p&gt;你知道，在其他语言中，命名空间有相似的实现方式，当不同命名空间之间相互调用的时候，他们提供一个额外的特性来简化操作。&lt;/p&gt;
+
+&lt;p&gt;拿Java来举栗吧，你可以使用通配符导入某个命名空间下的所有类，在Java中，&lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt;关键字相当于这里的&lt;code class=&quot;highlighter-rouge&quot;&gt;use&lt;/code&gt;,并且它使用点(.)来分割嵌套的命名空间（Java中叫包），下面是个栗子：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import dayle.blog.*;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这会导入’dayle.blog’包下的所有类。&lt;/p&gt;
+
+&lt;p&gt;而在PHP中你做不到，你需要分别导入每一个类。抱歉，实际上，为什么我要说抱歉呢？去向PHP的内部组抱怨啊，不，你需要冷静点，他们已经给了我们许多很酷很有用的东西啦。&lt;/p&gt;
+
+&lt;p&gt;然而这里有一个巧妙的技巧，想象我们有这个命名空间和类结构，正如之前的栗子：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dayle\Blog\Content\Post
+Dayle\Blog\Content\Page
+Dayle\Blog\Tag
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我们可以给子命名空间起一个别名来使用它下面的类，下面是一个栗子：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+namespace Baratheon;
+
+use Dayle\Blog as Cms;
+
+// app/routes.php
+
+$post = new Cms\Content\Post;
+$page = new Cms\Content\Page;
+$tag  = new Cms\Tag;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这对使用同一个命名空间下的许多类很有效，希望你喜欢！&lt;/p&gt;
+
+&lt;p&gt;原文链接: &lt;a href=&quot;https://daylerees.com/php-namespaces-explained/&quot;&gt;https://daylerees.com/php-namespaces-explained/&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;Vocabulary:&lt;br /&gt;
-None the less&lt;br /&gt;
+
+&lt;h3 id=&quot;vocabulary&quot;&gt;Vocabulary&lt;/h3&gt;
+&lt;p&gt;None the less&lt;br /&gt;
 purpose&lt;br /&gt;
 benefit&lt;br /&gt;
 convenient&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;neat&lt;/code&gt;:&lt;br /&gt;
+neat:&lt;br /&gt;
 essentially&lt;br /&gt;
 minor&lt;br /&gt;
 addition&lt;br /&gt;
@@ -246,9 +292,13 @@ faction&lt;br /&gt;
 problematic&lt;br /&gt;
 terribly&lt;br /&gt;
 inconvenient&lt;br /&gt;
-hassle&lt;/p&gt;
-
-&lt;p&gt;原文链接: &lt;a href=&quot;https://daylerees.com/php-namespaces-explained/&quot;&gt;https://daylerees.com/php-namespaces-explained/&lt;/a&gt;&lt;/p&gt;
+hassle&lt;br /&gt;
+mechanism&lt;br /&gt;
+guilty&lt;br /&gt;
+interacting&lt;br /&gt;
+individually&lt;br /&gt;
+gentle&lt;br /&gt;
+prove&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;

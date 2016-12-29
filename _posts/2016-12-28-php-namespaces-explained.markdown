@@ -6,7 +6,7 @@ categories: [PHP, namespaces, 命名空间]
 no-post-nav: true
 ---
 
-在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，没个新的特性都有它存在的意义，让我们看看为什么PHP的`namespace`有利于我们的应用程序。
+在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，每个新的特性都有它存在的意义，让我们看看为什么PHP的`namespace`有利于我们的应用程序。
 
 在PHP中，你不能同时定义一个相同名字的类，类名必须唯一。那么问题来了，如果你使用了一个第三方的库，这个库中有一个`User`类，那么你在创建你自己的类时就不能命名为`User`了。这就尴尬了，因为`User`这个名字太普遍了，对吧？
 
@@ -212,18 +212,61 @@ Dayle\Blog\Content\Page
 Dayle\Blog\Tag
 ```
 
-# // TODO
+这里我用了我的名字作为命名空间来存放源代码，对于使用我的库的人来说也是这么分割我的代码的，在基命名空间`Dayle`下，我创建了一些子命名空间来组织我程序的内部结构。
 
+在composer章节，你将学习到如何使用命名空间来简化你所定义的类，我墙裂推荐你看看这个有用的机制。
 
+### 限制
 
+实际上，起'限制'这个子标题，我感觉有些不妥，我所说的'限制'并不是一个真正的bug。
+
+你知道，在其他语言中，命名空间有相似的实现方式，当不同命名空间之间相互调用的时候，他们提供一个额外的特性来简化操作。
+
+拿Java来举栗吧，你可以使用通配符导入某个命名空间下的所有类，在Java中，`import`关键字相当于这里的`use`,并且它使用点(.)来分割嵌套的命名空间（Java中叫包），下面是个栗子：
+
+```
+import dayle.blog.*;
+```
+
+这会导入'dayle.blog'包下的所有类。
+
+而在PHP中你做不到，你需要分别导入每一个类。抱歉，实际上，为什么我要说抱歉呢？去向PHP的内部组抱怨啊，不，你需要冷静点，他们已经给了我们许多很酷很有用的东西啦。
+
+然而这里有一个巧妙的技巧，想象我们有这个命名空间和类结构，正如之前的栗子：
+
+```
+Dayle\Blog\Content\Post
+Dayle\Blog\Content\Page
+Dayle\Blog\Tag
+```
+
+我们可以给子命名空间起一个别名来使用它下面的类，下面是一个栗子：
+
+```
+<?php
+
+namespace Baratheon;
+
+use Dayle\Blog as Cms;
+
+// app/routes.php
+
+$post = new Cms\Content\Post;
+$page = new Cms\Content\Page;
+$tag  = new Cms\Tag;
+```
+这对使用同一个命名空间下的许多类很有效，希望你喜欢！
+
+原文链接: [https://daylerees.com/php-namespaces-explained/](https://daylerees.com/php-namespaces-explained/)
 
 ----
-Vocabulary:
+
+### Vocabulary
 None the less
 purpose
 benefit
 convenient
-`neat`:
+neat:
 essentially
 minor
 addition
@@ -241,8 +284,12 @@ problematic
 terribly
 inconvenient
 hassle
-
-原文链接: [https://daylerees.com/php-namespaces-explained/](https://daylerees.com/php-namespaces-explained/)
+mechanism
+guilty
+interacting
+individually
+gentle
+prove
 
 ---
 > ***Announcement:***
