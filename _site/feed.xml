@@ -5,8 +5,8 @@
     <description>Just writing</description>
     <link>http://liuwei.co/</link>
     <atom:link href="http://liuwei.co/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 29 Dec 2016 08:43:46 +0800</pubDate>
-    <lastBuildDate>Thu, 29 Dec 2016 08:43:46 +0800</lastBuildDate>
+    <pubDate>Mon, 16 Jan 2017 22:55:47 +0800</pubDate>
+    <lastBuildDate>Mon, 16 Jan 2017 22:55:47 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -267,48 +267,6 @@ $tag  = new Cms\Tag;
 &lt;p&gt;这对使用同一个命名空间下的许多类很有效，希望你喜欢！&lt;/p&gt;
 
 &lt;p&gt;原文链接: &lt;a href=&quot;https://daylerees.com/php-namespaces-explained/&quot;&gt;https://daylerees.com/php-namespaces-explained/&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;vocabulary&quot;&gt;Vocabulary&lt;/h3&gt;
-&lt;p&gt;None the less&lt;br /&gt;
-purpose&lt;br /&gt;
-benefit&lt;br /&gt;
-convenient&lt;br /&gt;
-neat:&lt;br /&gt;
-essentially&lt;br /&gt;
-minor&lt;br /&gt;
-addition&lt;br /&gt;
-directive&lt;br /&gt;
-informs&lt;br /&gt;
-instantiate&lt;br /&gt;
-The Theory of Relativity&lt;br /&gt;
-tiring&lt;br /&gt;
-backward slash&lt;br /&gt;
-horrible &lt;br /&gt;
-inconsistency&lt;br /&gt;
-purpose&lt;br /&gt;
-faction&lt;br /&gt;
-problematic&lt;br /&gt;
-terribly&lt;br /&gt;
-inconvenient&lt;br /&gt;
-hassle&lt;br /&gt;
-mechanism&lt;br /&gt;
-guilty&lt;br /&gt;
-interacting&lt;br /&gt;
-individually&lt;br /&gt;
-gentle&lt;br /&gt;
-prove&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;&lt;em&gt;Announcement:&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
-能力一般，水平有限，翻译不到位的地方请硬看！&lt;br /&gt;
-如果实在看不下去请关闭网页，深呼吸，抑或是抽根烟，以解心中不快。&lt;br /&gt;
-如果还觉得不爽，欢迎来&lt;a href=&quot;https://twitter.com/AwesomeEpisode&quot;&gt;twitter&lt;/a&gt;上找我互相伤害。&lt;br /&gt;
-本文翻译遵照 &lt;a href=&quot;https://zh.wikipedia.org/wiki/Wikipedia:CC&quot;&gt;CC 协议&lt;/a&gt;，如果侵犯到了您的权益，请及时发Email(i#liuwei.co)联系我，谢谢！&lt;/p&gt;
-&lt;/blockquote&gt;
-
 </description>
         <pubDate>Wed, 28 Dec 2016 00:00:00 +0800</pubDate>
         <link>http://liuwei.co/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</link>
@@ -416,16 +374,6 @@ Value  :  $(PRODUCT_NAME) tvProvider use&lt;/p&gt;
 &lt;p&gt;谢谢阅读&lt;/p&gt;
 
 &lt;p&gt;原文链接: &lt;a href=&quot;https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html&quot;&gt;https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;&lt;em&gt;Announcement:&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
-能力一般，水平有限，翻译不到位的地方请硬看！&lt;br /&gt;
-如果实在看不下去请关闭网页，深呼吸，抑或是抽根烟，以解心中不快。&lt;br /&gt;
-如果还觉得不爽，欢迎来&lt;a href=&quot;https://twitter.com/AwesomeEpisode&quot;&gt;twitter&lt;/a&gt;上找我互相伤害。&lt;br /&gt;
-本文翻译遵照 &lt;a href=&quot;https://zh.wikipedia.org/wiki/Wikipedia:CC&quot;&gt;CC 协议&lt;/a&gt;，如果侵犯到了您的权益，请及时发Email(i#liuwei.co)联系我，谢谢！&lt;/p&gt;
-&lt;/blockquote&gt;
-
 </description>
         <pubDate>Sat, 24 Dec 2016 00:00:00 +0800</pubDate>
         <link>http://liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</link>

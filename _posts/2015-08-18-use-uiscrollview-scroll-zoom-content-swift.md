@@ -353,35 +353,4 @@ func scrollViewDidZoom(scrollView: UIScrollView!) {
 ## 可翻页的UIScrollView
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 原文：[UIScrollView Tutorial: Getting Started](http://www.raywenderlich.com/76436/use-uiscrollview-scroll-zoom-content-swift)

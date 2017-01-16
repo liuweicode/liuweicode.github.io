@@ -97,19 +97,3 @@ Value  :  $(PRODUCT_NAME) tvProvider use
 谢谢阅读
 
 原文链接: [https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html](https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html)
-
----
-> ***Announcement:***
-> 能力一般，水平有限，翻译不到位的地方请硬看！
-> 如果实在看不下去请关闭网页，深呼吸，抑或是抽根烟，以解心中不快。
-> 如果还觉得不爽，欢迎来[twitter](https://twitter.com/AwesomeEpisode)上找我互相伤害。
-> 本文翻译遵照 [CC 协议](https://zh.wikipedia.org/wiki/Wikipedia:CC)，如果侵犯到了您的权益，请及时发Email(i#liuwei.co)联系我，谢谢！
-
-
-
-
-
-
-
-
-
