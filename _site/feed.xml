@@ -5,8 +5,8 @@
     <description>Just writing</description>
     <link>http://liuwei.co/</link>
     <atom:link href="http://liuwei.co/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 16 Jan 2017 22:55:47 +0800</pubDate>
-    <lastBuildDate>Mon, 16 Jan 2017 22:55:47 +0800</lastBuildDate>
+    <pubDate>Sun, 05 Feb 2017 16:32:06 +0800</pubDate>
+    <lastBuildDate>Sun, 05 Feb 2017 16:32:06 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -395,6 +395,260 @@ Value  :  $(PRODUCT_NAME) tvProvider use&lt;/p&gt;
         <category>Swift 3.0</category>
         
         <category>Xcode 8.0</category>
+        
+      </item>
+    
+      <item>
+        <title>常用的一些xcode插件</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/supermarin/Alcatraz&quot;&gt;Alcatraz&lt;/a&gt;：管理xcode插件的插件&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/XVimProject/XVim&quot;&gt;XVim&lt;/a&gt;：模拟vim编辑模式的插件&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/MakeZL/ZLGotoSandboxPlugin&quot;&gt;ZLGotoSandboxPlugin&lt;/a&gt;：快速进入模拟器路径的插件&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/onevcat/VVDocumenter-Xcode&quot;&gt;VVDocumenter-Xcode&lt;/a&gt;：帮助快速注释的插件&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/acoomans/ACCodeSnippetRepositoryPlugin&quot;&gt;ACCodeSnippetRepositoryPlugin&lt;/a&gt;：使用git仓库同步常用代码片段的插件&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/zats/AdjustFontSize-Xcode-Plugin&quot;&gt;AdjustFontSize-Xcode-Plugin&lt;/a&gt;：调整字体大小的插件&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/DeepIT/XcodeColors&quot;&gt;XcodeColors&lt;/a&gt;：把控制台输出的log加上不同的颜色&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/qfish/XAlign&quot;&gt;XAlign&lt;/a&gt;：格式化代码&lt;/p&gt;
+</description>
+        <pubDate>Wed, 07 Oct 2015 00:00:00 +0800</pubDate>
+        <link>http://liuwei.co/ios/xcode/2015/10/07/xcode-plugin.html</link>
+        <guid isPermaLink="true">http://liuwei.co/ios/xcode/2015/10/07/xcode-plugin.html</guid>
+        
+        
+        <category>iOS</category>
+        
+        <category>Xcode</category>
+        
+      </item>
+    
+      <item>
+        <title>一个有意思的终端录制&amp;分享工具</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://asciinema.org/&quot;&gt;asciinema&lt;/a&gt;：终端录制与屏幕分享工具&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 05 Oct 2015 00:00:00 +0800</pubDate>
+        <link>http://liuwei.co/tool/%E5%B7%A5%E5%85%B7/2015/10/05/asciinema.html</link>
+        <guid isPermaLink="true">http://liuwei.co/tool/%E5%B7%A5%E5%85%B7/2015/10/05/asciinema.html</guid>
+        
+        
+        <category>Tool</category>
+        
+        <category>工具</category>
+        
+      </item>
+    
+      <item>
+        <title>CoreText的内存管理</title>
+        <description>&lt;h3 id=&quot;coretext&quot;&gt;CoreText的内存管理&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;首先我要说明的是,我并没有在官方文档中查到有明确指出ARC情况下使用CoreText需要手动管理内存，如果有人查到具体文档，请告知我。但是基于以下几点，我仍然坚信，我们是需要手动释放的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;一，引起关注的原因：&lt;/h4&gt;
+
+&lt;p&gt;之前看到一段代码，隐隐感觉CTFontRef并没有释放。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        for (int i=0; i &amp;lt; array.count; i++) {
+            IFAAttributeModel* model = [array objectAtIndex:i];
+            if ([model isKindOfClass:[IFAAttributeModel class]]) {
+                if (model.string == nil) {
+                    continue;
+                }
+                NSInteger currentLength = [model.string length];
+                CTFontRef font = CTFontCreateWithName(CFSTR(&quot;Helvetica&quot;), model.fontSize, NULL);
+                [totalAttr addAttribute:(id)kCTFontAttributeName value:(__bridge id)font range:NSMakeRange(lastIndex, currentLength)];
+                [totalAttr addAttribute:(NSString*)NSForegroundColorAttributeName value:model.color range:NSMakeRange(lastIndex, currentLength)];
+                lastIndex = lastIndex + currentLength;
+            }
+        }
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;二，验证自己的想法&lt;/h4&gt;
+
+&lt;p&gt;1,根据&lt;a href=&quot;https://en.wikipedia.org/wiki/Core_Text&quot;&gt;维基百科&lt;/a&gt;上的解释，Core Text是Core Foundation风格的API，而Core Foundation是不受ARC管理的，因此我们需要手动管理内存。并且在它下面的Example中，是对CTFontRef进行CFRelease的。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Prepare font
+CTFontRef font = CTFontCreateWithName(CFSTR(&quot;Times&quot;), 48, NULL);
+
+// Create an attributed string
+CFStringRef keys[] = { kCTFontAttributeName };
+CFTypeRef values[] = { font };
+CFDictionaryRef attr = CFDictionaryCreate(NULL, (const void **)&amp;amp;keys, (const void **)&amp;amp;values,
+					  sizeof(keys) / sizeof(keys[0]), &amp;amp;kCFTypeDictionaryKeyCallBacks, &amp;amp;kCFTypeDictionaryValueCallBacks);
+CFAttributedStringRef attrString = CFAttributedStringCreate(NULL, CFSTR(&quot;Hello, World!&quot;), attr);
+CFRelease(attr);
+
+// Draw the string
+CTLineRef line = CTLineCreateWithAttributedString(attrString);
+CGContextSetTextMatrix(context, CGAffineTransformIdentity);  //Use this one when using standard view coordinates
+//CGContextSetTextMatrix(context, CGAffineTransformMakeScale(1.0, -1.0)); //Use this one if the view&#39;s coordinates are flipped
+
+CGContextSetTextPosition(context, 10, 20);
+CTLineDraw(line, context);
+
+// Clean up
+CFRelease(line);
+CFRelease(attrString);
+CFRelease(font);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;2, 对于Core Foundation的内存管理，苹果有&lt;a href=&quot;https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFMemoryMgmt/Concepts/Ownership.html#//apple_ref/doc/uid/20001148-CJBEJBHH&quot;&gt;明确的规则&lt;/a&gt;，对于方法名有着约定俗成的规则，如下：&lt;/p&gt;
+
+&lt;p&gt;There are many ways in which you can get a reference to an object using Core Foundation. In line with the Core Foundation ownership policy, you need to know whether or not you own an object returned by a function so that you know what action to take with respect to memory management. Core Foundation has established a naming convention for its functions that allows you to determine whether or not you own an object returned by a function. In brief, if a function name contains the word “Create” or “Copy”, you own the object. If a function name contains the word “Get”, you do not own the object. These rules are explained in greater detail in The Create Rule and The Get Rule.&lt;/p&gt;
+
+&lt;p&gt;3, 查看Apple的&lt;a href=&quot;https://developer.apple.com/library/prerelease/mac/samplecode/CoreTextRTF/Introduction/Intro.html#//apple_ref/doc/uid/DTS40007772-Intro-DontLinkElementID_2&quot;&gt;Sample Code&lt;/a&gt;的代码，也是对CTFontRef进行了释放。&lt;/p&gt;
+
+&lt;p&gt;4, 最后我们做一个demo来验证&lt;/p&gt;
+
+&lt;p&gt;新建一个&lt;code class=&quot;highlighter-rouge&quot;&gt;Single View Application&lt;/code&gt;的xcode项目，在ViewController.m文件中模拟之前的代码编写一个如下的方法：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-(void)test
+{
+    NSMutableAttributedString* totalAttr = [[NSMutableAttributedString alloc]initWithString:@&quot;1234567890&quot;];
+    
+    CTFontRef font = CTFontCreateWithName(CFSTR(&quot;Helvetica&quot;), 24, NULL);
+    
+    NSLog(@&quot;%li&quot;,CFGetRetainCount(font));
+    
+    id oFont = (__bridge id)font;
+    
+    NSLog(@&quot;%li&quot;,CFGetRetainCount(font));
+    
+    [totalAttr addAttribute:(id)kCTFontAttributeName value:oFont range:NSMakeRange(0, 2)];
+    
+    NSLog(@&quot;%li&quot;,CFGetRetainCount(font));
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后在&lt;code class=&quot;highlighter-rouge&quot;&gt;viewDidLoad&lt;/code&gt;方法中添加如下代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        while (YES) {
+            [self test];
+        }
+    });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;按快捷键command＋r运行项目。在Debug Navigator中可以看到Memory一直在持续的上涨。&lt;/p&gt;
+
+&lt;p&gt;现在我们在test方法最下面添加释放代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    CFRelease(font);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;再次command+r运行，可以看到此时Memory并没有持续上涨。&lt;/p&gt;
+
+&lt;p&gt;综上所述，我们需要对CTFontCreateWithName创建的CTFontRef进行CFRelease释放操作。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;其实解决这个问题还有一种方式，将是将&lt;code class=&quot;highlighter-rouge&quot;&gt;__bridge&lt;/code&gt;换成&lt;code class=&quot;highlighter-rouge&quot;&gt;__bridge_transfer&lt;/code&gt;,这样就不需要手动&lt;code class=&quot;highlighter-rouge&quot;&gt;CFRelease&lt;/code&gt;了，代码如下：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; -(void)test
+{
+    NSMutableAttributedString* totalAttr = [[NSMutableAttributedString alloc]initWithString:@&quot;1234567890&quot;];
+    
+    CTFontRef font = CTFontCreateWithName(CFSTR(&quot;Helvetica&quot;), 24, NULL);
+    
+    NSLog(@&quot;%li&quot;,CFGetRetainCount(font));
+    
+    id oFont = (__bridge_transfer id)font;
+    
+    NSLog(@&quot;%li&quot;,CFGetRetainCount(font));
+    
+    [totalAttr addAttribute:(id)kCTFontAttributeName value:oFont range:NSMakeRange(0, 2)];
+    
+    NSLog(@&quot;%li&quot;,CFGetRetainCount(font));
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;编译运行，内存也没有持续上涨，这主要得益于&lt;code class=&quot;highlighter-rouge&quot;&gt;__bridge_transfer&lt;/code&gt;将Core Foundation的对象转换为Objective-C对象的同时将对象的内存管理权交给了ARC，ARC帮我们release了。&lt;/p&gt;
+
+&lt;p&gt;参考：&lt;/p&gt;
+
+&lt;p&gt;https://developer.apple.com/library/prerelease/mac/samplecode/CoreTextRTF/Introduction/Intro.html&lt;/p&gt;
+
+&lt;p&gt;https://developer.apple.com/legacy/library/samplecode/CoreTextTest/Listings/main_c.html#//apple_ref/doc/uid/DTS10004140-main_c-DontLinkElementID_4&lt;/p&gt;
+
+&lt;p&gt;https://en.wikipedia.org/wiki/Core_Text&lt;/p&gt;
+
+&lt;p&gt;http://clang.llvm.org/docs/AutomaticReferenceCounting.html#bridged-casts&lt;/p&gt;
+
+&lt;p&gt;http://www.yifeiyang.net/development-of-the-iphone-simply-6/&lt;/p&gt;
+
+&lt;p&gt;http://blog.sina.com.cn/s/blog_6dce99b10101kux4.html&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 04 Oct 2015 00:00:00 +0800</pubDate>
+        <link>http://liuwei.co/ios/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2015/10/04/coreText-memory-manage-in-ios.html</link>
+        <guid isPermaLink="true">http://liuwei.co/ios/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2015/10/04/coreText-memory-manage-in-ios.html</guid>
+        
+        
+        <category>iOS</category>
+        
+        <category>内存管理</category>
+        
+      </item>
+    
+      <item>
+        <title>如何优雅的解决消息转发问题</title>
+        <description>&lt;h4 id=&quot;objectivec&quot;&gt;ObjectiveC如何优雅的解决消息转发问题&lt;/h4&gt;
+
+&lt;p&gt;很多时候我们需要实现这样一种场景，我们需要继承系统的View，比如UITextField，然后在我们的自定义TextField中拦截UITextFieldDelegate的某些方法，在拦截代码中实现一些自定义逻辑。&lt;/p&gt;
+
+&lt;p&gt;如果给我写，我可能会在我们自定义的TextField中再定义一个delegate2,这是一种非常傻瓜的方式，并且需要实现原先系统的UITextFieldDelegate中的所有方法，最近看到我们组里大神写的代码，才知道我真的是图样图森破了。&lt;/p&gt;
+
+&lt;p&gt;主要是用到&lt;code class=&quot;highlighter-rouge&quot;&gt;forwardingTargetForSelector&lt;/code&gt;来做消息转发。这是Objective C运行时（runtime）技术，很强大，我自己测试的示例代码已经放到&lt;a href=&quot;https://github.com/liuweicode/MessageInterceptorDemo&quot;&gt;github&lt;/a&gt;上了，有了这个，以后就可以做很多工作了，后面还需要深入研究。&lt;/p&gt;
+
+&lt;p&gt;最后再说一下里面用到的一段代码，如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BOOL selector_belongsToProtocol(SEL selector, Protocol * protocol)
+{
+    for (int optionbits = 0; optionbits &amp;lt; (1 &amp;lt;&amp;lt; 2); optionbits++) {
+        BOOL required = optionbits &amp;amp; 1;
+        BOOL instance = !(optionbits &amp;amp; (1 &amp;lt;&amp;lt; 1));
+        
+        struct objc_method_description hasMethod = protocol_getMethodDescription(protocol, selector, required, instance);
+        if (hasMethod.name || hasMethod.types) {
+            return YES;
+        }
+    }
+    return NO;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;刚开始看到这个方法整个人有点懵，为什么这么写就能判断出某个Selector是不是某个协议里的方法，后来突然开窍，原来是&lt;code class=&quot;highlighter-rouge&quot;&gt;protocol_getMethodDescription&lt;/code&gt;方法的后两个参数，是否必须（required），是否是实例方法（instance），两个Bool，总共4种可能，只要其中有一个得到了方法名（hasMethod.name）并且得到了方法类型（hasMethod.types），那么这个方法一定属于这个协议了。&lt;/p&gt;
+
+&lt;p&gt;参考：&lt;/p&gt;
+
+&lt;p&gt;http://stackoverflow.com/questions/3498158/intercept-objective-c-delegate-messages-within-a-subclass&lt;/p&gt;
+
+&lt;h4 id=&quot;todo&quot;&gt;TODO&lt;/h4&gt;
+
+&lt;p&gt;深入了解&lt;code class=&quot;highlighter-rouge&quot;&gt;forwardingTargetForSelector&lt;/code&gt;的消息转发机制。&lt;/p&gt;
+</description>
+        <pubDate>Sat, 03 Oct 2015 00:00:00 +0800</pubDate>
+        <link>http://liuwei.co/ios/2015/10/03/message-forward.html</link>
+        <guid isPermaLink="true">http://liuwei.co/ios/2015/10/03/message-forward.html</guid>
+        
+        
+        <category>iOS</category>
         
       </item>
     
@@ -982,6 +1236,55 @@ forever start -e error.log bin/www
         <category>Wiki</category>
         
         <category>Share</category>
+        
+      </item>
+    
+      <item>
+        <title>一个不经意的内存泄露问题</title>
+        <description>&lt;p&gt;最近在用Mediaplayer播放音乐的时候，Logcat总是打印如下信息：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GC_CONCURRENT freed 118K, 42% free 3840K/6599K, external 2085K/2566K, paused 2ms+2ms
+GC_CONCURRENT freed 224K, 38% free 4708K/7559K, external 2085K/2566K, paused 2ms+4ms
+GC_CONCURRENT freed 283K, 34% free 5788K/8711K, external 2085K/2566K, paused 2ms+3ms
+GC_CONCURRENT freed 361K, 30% free 7177K/10183K, external 2085K/2566K, paused 2ms+2ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;不一会儿就内存溢出了.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;I/dalvikvm-heap( 4883): Clamp target GC heap from 34.004MB to 32.000MB
+D/dalvikvm( 4883): GC_FOR_MALLOC freed 0K, 9% free 28074K/30727K, external 2085K
+/2566K, paused 178ms
+I/dalvikvm-heap( 4883): Clamp target GC heap from 32.004MB to 32.000MB
+I/dalvikvm-heap( 4883): Grow heap (frag case) to 32.000MB for 52-byte allocation
+
+I/dalvikvm-heap( 4883): Clamp target GC heap from 34.004MB to 32.000MB
+D/dalvikvm( 4883): GC_CONCURRENT freed &amp;lt;1K, 9% free 28074K/30727K, external 2085
+K/2566K, paused 2ms+5ms
+I/dalvikvm-heap( 4883): Clamp target GC heap from 34.004MB to 32.000MB
+D/dalvikvm( 4883): GC_FOR_MALLOC freed 0K, 9% free 28074K/30727K, external 2085K
+/2566K, paused 178ms
+I/dalvikvm-heap( 4883): Clamp target GC heap from 32.004MB to 32.000MB
+I/dalvikvm-heap( 4883): Grow heap (frag case) to 32.000MB for 24-byte allocation
+
+I/dalvikvm-heap( 4883): Clamp target GC heap from 34.004MB to 32.000MB
+D/dalvikvm( 4883): GC_FOR_MALLOC freed 0K, 9% free 28074K/30727K, external 2085K
+/2566K, paused 177ms
+I/dalvikvm-heap( 4883): Clamp target GC heap from 32.004MB to 32.000MB
+I/dalvikvm-heap( 4883): Grow heap (frag case) to 32.000MB for 20-byte allocation
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;经过排查，不是Service跟Mediaplayer的原因，锁定了问题的原因是线程频繁更新剩余时间的TextView导致的。应该不会吧，我更新时间只有一个线程在跑，不可能线程数量过多导致内存溢出啊，于是我又换成broadcast，在Service中播放音乐的同时，sendbroadcast给Activity来更新Textview，问题依旧，我又换成Timer定时任务来做，依旧未能解决，我走在崩溃的边缘，连头发都凌乱了。不知何时，一位网友的话点醒了我，具体的网址记不清了，他说他以前遇到此问题是由于设置android:layout_weight属性导致控件频繁刷新，联想到我的剩余时间显示控件Textview的android:layout_width设置为wrap_content，由于播放过程中频繁刷新TextView导致内存溢出的，将该属性值改成120dip，问题解决！&lt;/p&gt;
+</description>
+        <pubDate>Fri, 29 Mar 2013 00:00:00 +0800</pubDate>
+        <link>http://liuwei.co/android/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2013/03/29/%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%BB%8F%E6%84%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98.html</link>
+        <guid isPermaLink="true">http://liuwei.co/android/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2013/03/29/%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%BB%8F%E6%84%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98.html</guid>
+        
+        
+        <category>Android</category>
+        
+        <category>内存管理</category>
         
       </item>
     

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>一个不经意的内存泄露问题</title>
+    <meta name="description"
+          content="最近在用Mediaplayer播放音乐的时候，Logcat总是打印如下信息：">
+
+    <link rel="canonical" href="http://127.0.0.1:4000/android/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2013/03/29/%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%BB%8F%E6%84%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98-copy.html">
+    <link rel="alternate" type="application/rss+xml" title="A place to write things" href="http://127.0.0.1:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="liuwei.co">
+            <span class="octicon octicon-mention"></span> liuwei.co
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="一个不经意的内存泄露问题">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>一个不经意的内存泄露问题</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2013/03/29
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-12 markdown-body">
+
+            <p>最近在用Mediaplayer播放音乐的时候，Logcat总是打印如下信息：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>GC_CONCURRENT freed 118K, 42% free 3840K/6599K, external 2085K/2566K, paused 2ms+2ms
+GC_CONCURRENT freed 224K, 38% free 4708K/7559K, external 2085K/2566K, paused 2ms+4ms
+GC_CONCURRENT freed 283K, 34% free 5788K/8711K, external 2085K/2566K, paused 2ms+3ms
+GC_CONCURRENT freed 361K, 30% free 7177K/10183K, external 2085K/2566K, paused 2ms+2ms
+</code></pre>
+</div>
+
+<p>不一会儿就内存溢出了.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>I/dalvikvm-heap( 4883): Clamp target GC heap from 34.004MB to 32.000MB
+D/dalvikvm( 4883): GC_FOR_MALLOC freed 0K, 9% free 28074K/30727K, external 2085K
+/2566K, paused 178ms
+I/dalvikvm-heap( 4883): Clamp target GC heap from 32.004MB to 32.000MB
+I/dalvikvm-heap( 4883): Grow heap (frag case) to 32.000MB for 52-byte allocation
+
+I/dalvikvm-heap( 4883): Clamp target GC heap from 34.004MB to 32.000MB
+D/dalvikvm( 4883): GC_CONCURRENT freed &lt;1K, 9% free 28074K/30727K, external 2085
+K/2566K, paused 2ms+5ms
+I/dalvikvm-heap( 4883): Clamp target GC heap from 34.004MB to 32.000MB
+D/dalvikvm( 4883): GC_FOR_MALLOC freed 0K, 9% free 28074K/30727K, external 2085K
+/2566K, paused 178ms
+I/dalvikvm-heap( 4883): Clamp target GC heap from 32.004MB to 32.000MB
+I/dalvikvm-heap( 4883): Grow heap (frag case) to 32.000MB for 24-byte allocation
+
+I/dalvikvm-heap( 4883): Clamp target GC heap from 34.004MB to 32.000MB
+D/dalvikvm( 4883): GC_FOR_MALLOC freed 0K, 9% free 28074K/30727K, external 2085K
+/2566K, paused 177ms
+I/dalvikvm-heap( 4883): Clamp target GC heap from 32.004MB to 32.000MB
+I/dalvikvm-heap( 4883): Grow heap (frag case) to 32.000MB for 20-byte allocation
+</code></pre>
+</div>
+
+<p>经过排查，不是Service跟Mediaplayer的原因，锁定了问题的原因是线程频繁更新剩余时间的TextView导致的。应该不会吧，我更新时间只有一个线程在跑，不可能线程数量过多导致内存溢出啊，于是我又换成broadcast，在Service中播放音乐的同时，sendbroadcast给Activity来更新Textview，问题依旧，我又换成Timer定时任务来做，依旧未能解决，我走在崩溃的边缘，连头发都凌乱了。不知何时，一位网友的话点醒了我，具体的网址记不清了，他说他以前遇到此问题是由于设置android:layout_weight属性导致控件频繁刷新，联想到我的剩余时间显示控件Textview的android:layout_width设置为wrap_content，由于播放过程中频繁刷新TextView导致内存溢出的，将该属性值改成120dip，问题解决！</p>
+
+
+            <!-- Comments -->
+            
+
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/liuweicode" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+
+</footer>
+
+
+    </body>
+
+</html>

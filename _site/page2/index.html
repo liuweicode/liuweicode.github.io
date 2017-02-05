@@ -13,7 +13,7 @@
     <meta name="description"
           content="Just writing">
 
-    <link rel="canonical" href="http://liuwei.co/">
+    <link rel="canonical" href="http://liuwei.co/page2/">
     <link rel="alternate" type="application/rss+xml" title="A place to write things" href="http://liuwei.co/feed.xml">
 
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
@@ -127,121 +127,146 @@
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html">PHP 命名空间说明</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/vps/2013/03/16/VPS-%E7%A3%81%E7%9B%98%E7%88%86%E6%BB%A1-mysql-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E4%BA%8B%E4%BB%B6%E8%AE%B0%E5%BD%95.html">VPS 磁盘爆满 mysql 无法启动事件记录</a>
                     </h2>
                     <p class="post-list-description">
-                        在PHP5.3版本中新添加了一个命名空间特性,许多现代流行的语言拥有这个特性已经有一段时间了，但是PHP这一特性有一点点姗姗来迟，当然了，每个新的特性都有它存在的意义，让我们看看为什么PHP的namespace有利于我们的应用程序。
+                        前两天在修改网站图片的时候，发现ftp无法上传，提示磁盘爆满，不会吧，我带着疑惑ssh到vps上，df -h查看，果然使用了100%。我想可能是我长时间没有重启vps了，产生了大量的临时文件，于是我reboot vps，结果发现不但问题没有解决，连mysql也无法启动了！service mysql status，显示“MySQL is running but PID file is not found”。
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2016/12/28
+                        <span class="octicon octicon-calendar"></span> 2013/03/16
                     </p>
                 </li>
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html">iOS10请求隐私权限的设置 - Info.plist</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/vps/2013/03/16/%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85Apache-Http-Server.html">编译和安装Apache Http Server</a>
                     </h2>
                     <p class="post-list-description">
-                        在访问用户手机通讯录,相册,地址,日历等隐私数据前需要向用户请求使用权限，在iOS10中，苹果公司加强了对隐私控制的审查，你必须在Info.plist文件中对所有需要访问的隐私数据作出声明。
+                        编译安装apr
+./configure –prefix=/usr/local/apr
+make &amp;&amp; make install
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2016/12/24
+                        <span class="octicon octicon-calendar"></span> 2013/03/16
                     </p>
                 </li>
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/ios/xcode/2015/10/07/xcode-plugin.html">常用的一些xcode插件</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/server/2013/02/27/Ubuntu-%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95.html">Ubuntu 图形界面无法登录</a>
                     </h2>
                     <p class="post-list-description">
-                        Alcatraz：管理xcode插件的插件
+                        今天登录ubuntu的时候，在图形界面输入密码，始终登录不进去。网上查原因说不要在/etc/environment里设置export PATH，这样会导致重启后登录不了。我回想今天在安装Maven的时候，在/etc/environment中写了如下内容：
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/10/07
+                        <span class="octicon octicon-calendar"></span> 2013/02/27
                     </p>
                 </li>
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/tool/%E5%B7%A5%E5%85%B7/2015/10/05/asciinema.html">一个有意思的终端录制&分享工具</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/android/2013/02/04/%E8%A7%A3%E5%86%B3Android%E7%A8%8B%E5%BA%8F%E5%90%AF%E5%8A%A8%E7%9F%AD%E6%9A%82%E9%BB%91%E5%B1%8F%E7%9A%84%E9%97%AE%E9%A2%98.html">解决Android程序启动短暂黑屏的问题</a>
                     </h2>
                     <p class="post-list-description">
-                        asciinema：终端录制与屏幕分享工具
+                        在AndroidManifest.xml中，将最先启动的Activity设置为android:theme=”@android:style/Theme.Translucent”，如下：
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/10/05
+                        <span class="octicon octicon-calendar"></span> 2013/02/04
                     </p>
                 </li>
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/ios/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2015/10/04/coreText-memory-manage-in-ios.html">CoreText的内存管理</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/android/2012/12/14/Android-%E9%9F%B3%E9%87%8F%E9%94%AE%E5%94%A4%E9%86%92%E5%B1%8F%E5%B9%95.html">Android 音量键唤醒屏幕</a>
                     </h2>
                     <p class="post-list-description">
-                        CoreText的内存管理
+                        liuwei@IT:~$ adb shell
+/ # cd /system/usr/keylayout
+/system/usr/keylayout # ls
+AVRCP.kl
+Generic.kl
+Vendor_045e_Product_028e.kl
+Vendor_046d_Product_c216.kl
+Vendor_046d_Product_c294.kl
+Vendor_046d_Product_c299.kl
+Vendor_046d_Product_c532.kl
+Vendor_054c_Product_0268.kl
+Vendor_05ac_Product_0239.kl
+Vendor_22b8_Product_093d.kl
+gpio-keys.kl
+qwerty.kl
+s3c-keypad.kl
+/system/usr/keylayout # vi s3c-keypad.kl
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/10/04
+                        <span class="octicon octicon-calendar"></span> 2012/12/14
                     </p>
                 </li>
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/ios/2015/10/03/message-forward.html">如何优雅的解决消息转发问题</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/java/2012/12/05/%E5%85%B3%E4%BA%8E%E5%8F%8B%E5%96%84%E4%B9%8B%E8%87%82-Tiny6410%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BDlibfriendlyarm-hardware.so%E7%9A%84%E9%97%AE%E9%A2%98.html">关于友善之臂 Tiny6410无法加载libfriendlyarm-hardware.so的问题</a>
                     </h2>
                     <p class="post-list-description">
-                        ObjectiveC如何优雅的解决消息转发问题
+                        adb logcat 信息日志如下：
+D/dalvikvm( 4534): No JNI_OnLoad found in /system/lib/libfriendlyarm-hardware.so 0x40712ca8, skipping init
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/10/03
+                        <span class="octicon octicon-calendar"></span> 2012/12/05
                     </p>
                 </li>
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html">UIScrollView 教程（swift）</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/ubuntu/ipv4/ipv6/2012/12/04/Ubuntu-%E9%80%9A%E8%BF%87ipv4%E8%BD%ACipv6%E4%B8%8A%E7%BD%91.html">Ubuntu 通过ipv4转ipv6上网</a>
                     </h2>
                     <p class="post-list-description">
-                        UIScrollView 在ios开发中是非常有用的控件之一。它是UITableView的基础，并且是展示内容大于屏幕的一种非常好的方式。在这篇UIScrollView教程中，你将学到这个控件的如下使用方法：
+                        sudo apt-get install miredo
+sudo gedit /etc/hosts
+
+
+将如下网址的内容粘贴进去：
+https://ipv6-hosts.googlecode.com/hg/hosts
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/08/18
+                        <span class="octicon octicon-calendar"></span> 2012/12/04
                     </p>
                 </li>
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html">提高IOS开发效率的一些小技巧</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/centos/virtualbox/2012/12/02/Centos6.3-%E5%AE%89%E8%A3%85VirtualBox.html">Centos6.3 安装VirtualBox</a>
                     </h2>
                     <p class="post-list-description">
-                        一，快捷键
+                        查看系统信息：
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/08/16
+                        <span class="octicon octicon-calendar"></span> 2012/12/02
                     </p>
                 </li>
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/wiki/share/2015/08/16/create-a-personal-wiki-platform.html">搭建个人知识管理平台</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/centos/virtualbox/2012/12/02/Centos-ntfs-3g-%E6%8C%82%E8%BD%BDntfs%E7%A7%BB%E5%8A%A8%E7%9B%98.html">Centos ntfs-3g 挂载ntfs移动盘</a>
                     </h2>
                     <p class="post-list-description">
-                        环境
+                        首先到官网下载源码包
+http://www.tuxera.com/community/ntfs-3g-download/
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/08/16
+                        <span class="octicon octicon-calendar"></span> 2012/12/02
                     </p>
                 </li>
                 
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="http://liuwei.co/android/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2013/03/29/%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%BB%8F%E6%84%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98.html">一个不经意的内存泄露问题</a>
+                        <a class="hvr-underline-from-center" href="http://liuwei.co/android/2012/11/15/Android-device-chooser-unknown.html">Android device chooser unknown</a>
                     </h2>
                     <p class="post-list-description">
-                        最近在用Mediaplayer播放音乐的时候，Logcat总是打印如下信息：
+                        当我用真机USB连接电脑时，出现如下图错误，Eclipse无法识别。
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2013/03/29
+                        <span class="octicon octicon-calendar"></span> 2012/11/15
                     </p>
                 </li>
                 
@@ -253,16 +278,18 @@
     <div class="btn-group">
 
         
-        <button disabled="disabled" href="javascript:;" class="btn btn-outline">&laquo;</button>
+        
+        <a href="/" class="btn btn-outline">&laquo;</a>
+        
         
 
         
-        <a href="javascript:;" class="active btn btn-outline">1</a>
+        <a href="/" class="btn btn-outline">1</a>
         
 
         
         
-        <a href="/page2" class="btn btn-outline">2</a>
+        <a href="javascript:;" class="active btn btn-outline">2</a>
         
         
         
@@ -271,7 +298,7 @@
         
 
         
-        <a href="/page2" class="btn btn-outline">&raquo;</a>
+        <a href="/page3" class="btn btn-outline">&raquo;</a>
         
 
     </div>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>Android device chooser unknown</title>
+    <meta name="description"
+          content="当我用真机USB连接电脑时，出现如下图错误，Eclipse无法识别。">
+
+    <link rel="canonical" href="http://127.0.0.1:4000/android/2012/11/15/Android-device-chooser-unknown-copy.html">
+    <link rel="alternate" type="application/rss+xml" title="A place to write things" href="http://127.0.0.1:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="liuwei.co">
+            <span class="octicon octicon-mention"></span> liuwei.co
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Android device chooser unknown">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Android device chooser unknown</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2012/11/15
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-12 markdown-body">
+
+            <p>当我用真机USB连接电脑时，出现如下图错误，Eclipse无法识别。</p>
+
+<p><img src="/assets/images/20121115/device_chooser_unknown_2.png" alt="image" /></p>
+
+<p>解决办法参照：http://developer.android.com/tools/device.html#setting-up</p>
+
+<p>由于我的是Ubuntu系统，手机是摩托罗拉Me722,所以解决办法如下：<br />
+sudo vim /etc/udev/rules.d/51-android.rules<br />
+把 SUBSYSTEM==”usb”, ATTR{idVendor}==”22b8”, MODE=”0666” 粘贴进去。<br />
+接着改变权限：sudo chmod a+r /etc/udev/rules.d/51-android.rules</p>
+
+<p>如果还不行，则使用如下办法，参考：http://stackoverflow.com/questions/5584976/android-device-chooser-my-device-seems-offline<br />
+1，Restart adb by issuing ‘adb kill-server’ followed by ‘adb start-server’ at a cmd prompt<br />
+2，Disable and re-enable USB debugging on the phone<br />
+3，Rebooting the phone if it still doesn’t work.</p>
+
+<p>由于经常出现无法访问，故记录在此：<br />
+Company	USB Vendor ID<br />
+Acer 0502<br />
+ASUS 0b05<br />
+Dell 413c<br />
+Foxconn 0489<br />
+Fujitsu 04c5<br />
+Fujitsu Toshiba 04c5<br />
+Garmin-Asus 091e<br />
+Google 18d1<br />
+Hisense 109b<br />
+HTC 0bb4<br />
+Huawei 12d1<br />
+K-Touch 24e3<br />
+KT Tech 2116<br />
+Kyocera 0482<br />
+Lenovo 17ef<br />
+LG 1004<br />
+Motorola 22b8<br />
+NEC 0409<br />
+Nook 2080<br />
+Nvidia 0955<br />
+OTGV 2257<br />
+Pantech 10a9<br />
+Pegatron 1d4d<br />
+Philips 0471<br />
+PMC-Sierra 04da<br />
+Qualcomm 05c6<br />
+SK Telesys 1f53<br />
+Samsung 04e8<br />
+Sharp 04dd<br />
+Sony 054c<br />
+Sony Ericsson 0fce<br />
+Teleepoch 2340<br />
+Toshiba 0930<br />
+ZTE 19d2</p>
+
+
+            <!-- Comments -->
+            
+
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/liuweicode" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+
+</footer>
+
+
+    </body>
+
+</html>

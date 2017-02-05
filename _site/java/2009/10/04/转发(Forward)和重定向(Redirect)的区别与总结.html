@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>转发(Forward)和重定向(Redirect)的区别与总结</title>
+    <meta name="description"
+          content="request.getRequestDispatcher(“路径”).forward(request,response);">
+
+    <link rel="canonical" href="http://liuwei.co/java/2009/10/04/%E8%BD%AC%E5%8F%91(Forward)%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91(Redirect)%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E6%80%BB%E7%BB%93.html">
+    <link rel="alternate" type="application/rss+xml" title="A place to write things" href="http://liuwei.co/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="liuwei.co">
+            <span class="octicon octicon-mention"></span> liuwei.co
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="转发(Forward)和重定向(Redirect)的区别与总结">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>转发(Forward)和重定向(Redirect)的区别与总结</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2009/10/04
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-12 markdown-body">
+
+            <div class="highlighter-rouge"><pre class="highlight"><code>request.getRequestDispatcher(“路径”).forward(request,response);
+</code></pre>
+</div>
+
+<p>1、该路径可以是相对于上下文根路径，还可以是相对于当前servlet 的路径。<br />
+如：/demo 和 demo 都是合法的路径。<br />
+① 如果路径以斜杠（/）开头，则被解释为相对于当前上下文根的路径。<br />
+② 如果没有以斜杠（/）开头，则被解释为相对于当前servlet 的路径。<br />
+2、如果用根路径，那么该根路径所指的是该应用程序的根路径 。</p>
+
+<p>Web.xml 文件配置如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.........
+&lt;servlet&gt;
+&lt;servlet-name&gt;TestForward&lt;/servlet-name&gt;
+&lt;servlet-
+class&gt;com.accp.servlet.TestForward&lt;/servlet-
+class&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;TestForward&lt;/servlet-name&gt;
+&lt;url-pattern&gt;/TestForward&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+.........
+</code></pre>
+</div>
+
+<p>那么请求转发的语句为：<br />
+request.getRequestDispatcher(“/a/a.jsp”).forward(request, response);<br />
+斜杠表示相对于该应用程序的根路径。<br />
+或者语句为：<br />
+request.getRequestDispatcher(“a/a.jsp”).forward(request, response);<br />
+没有斜杠，表示相对于改servlet 的路径。</p>
+
+<p>但此时要注意，因为上面配置改 servlet 时，用的路径是<url-pattern>/TestForward&lt;/url-
+pattern&gt;，因此上面才可以访问，如果改成<url-pattern>/a/b/TestForward</url-pattern>，此时
+用如下方法
+request.getRequestDispatcher(“a/a.jsp”).forward(request, response);
+运行，会出404.</url-pattern></p>
+
+<p>因为没有斜杠，用的是相对于改servlet 路径，所以会出现404 错误，正确代码如下：<br />
+request.getRequestDispatcher(“../../a/a.jsp”).forward(request, response);<br />
+或者干脆直接用相对于改程序的根路径：<br />
+request.getRequestDispatcher(“/a/a.jsp”).forward(request, response);<br />
+因此获得如下经验：<br />
+用 request.getRequestDispatcher(“路径”).forward(request, response);进行请求转发<br />
+时，路径最好加上斜杠“/”，表示相对于当前上下文的根路径，也就是程序的根路径。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>getServletContext().getRequestDispatcher(“路径”).forward(request,response);
+</code></pre>
+</div>
+
+<p>1、该路径必须以斜杠“/”开始，解释为相对于当前上下文根（context root）的路径。<br />
+2、ServletContext.getContext()方法可以获得另一个 web 应用程序的上下文对象，利用该上下文对<br />
+象调用getRequestDispatcher(“路径”)方法得到的RequestDispatcher 对象，可以将请求转向到另一个<br />
+web 应用程序中的资源，但是要注意的是：要夸web 应用程序访问资源，需要在当前web 应用程序的<context>
+元素的设置中，指定crossContext 属性的值为true。
+例如：
+如果不以斜杠开头，用下列语句转发会报如下错误：
+thisthisthisthis.getServletContext().getRequestDispatcher(“../../a/a.jsp”)
+.forward(request, response);</context></p>
+
+<p>正确的写法为：<br />
+thisthisthisthis.getServletContext().getRequestDispatcher(“/a/a.jsp”)<br />
+.forward(request, response);</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>response.sendRedirect(“路径”);
+</code></pre>
+</div>
+
+<p>1、该路径可以是相对于服务器根路径，还可以是相对于当前servlet 的路径。（要与上面讲的第一个区别开来）<br />
+① 如果路径以斜杠（/）开头，则被解释为相对于服务器根路径。<br />
+② 如果没有以斜杠（/）开头，则被解释为相对于当前servlet 的路径。<br />
+2、如果用根路径，那么该根路径所指的是服务器根路径。<br />
+如：http://localhost:8080:/demo/ 那么该服务器根路径指的就是 http://localhost:8080/</p>
+
+<p>范例：<br />
+程序的目录层次像上面一样，web.xml 配置如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;servlet&gt;
+&lt;servlet-name&gt;TestForward&lt;/servlet-name&gt;
+&lt;servlet-class&gt;com.accp.servlet.TestForward&lt;/servlet-
+class&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;TestForward&lt;/servlet-name&gt;
+&lt;url-pattern&gt;/a/b/TestForward&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre>
+</div>
+
+<p>那么用下列语句运行：<br />
+response.sendRedirect(“/a/a.jsp”);<br />
+出现404 错误：</p>
+
+<p>那是因为用 response.sendRedirect(“/a/a.jsp”);重定向的时候，这里的斜杠是服务器的根路径，因此<br />
+当然找不到请求的资源了。<br />
+正确的做法是：<br />
+response.sendRedirect(“/demo/a/a.jsp”);<br />
+或者用相对路径（相对于当前servlet）：<br />
+response.sendRedirect(“../../a/a.jsp”);</p>
+
+
+
+            <!-- Comments -->
+            
+
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/liuweicode" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+
+</footer>
+
+
+    </body>
+
+</html>
