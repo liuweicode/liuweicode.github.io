@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>ubuntu apache2编译安装</title>
+    <meta name="description"
+          content="1下载源码包: http://httpd.apache.org/download.cgi#apache22 （我下载的是httpd-2.2.15.tar.gz）">
+
+    <link rel="canonical" href="http://liuwei.co/ubuntu/server/2010/05/10/ubuntu-apache2%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85.html">
+    <link rel="alternate" type="application/rss+xml" title="Stay Hungry, Stay Foolish." href="http://liuwei.co/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="liuwei.co">
+            <span class="octicon octicon-mention"></span> liuwei.co
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="ubuntu apache2编译安装">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>ubuntu apache2编译安装</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2010/05/10
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-12 markdown-body">
+
+            <p>1下载源码包: http://httpd.apache.org/download.cgi#apache22 （我下载的是httpd-2.2.15.tar.gz）</p>
+
+<p>2解压: tar -zxvf httpd-2.2.15.tar.gz<br />
+（ -z, –gzip, –gunzip, –ungzip 通过 gzip 过滤归档<br />
+-x, –extract, –get 从归档中解出文件<br />
+-v, –verbose 详细地列出处理的文件<br />
+-f, –file=ARCHIVE 使用归档文件或 ARCHIVE 设备）</p>
+
+<p>3进入目录: cd httpd-2.2.15</p>
+
+<p>4收集相关信息,生成makefile文件: sudo ./configure –prefix=/usr/local/myserver/apache2 –enable-module=so<br />
+5将源码包生成二进制的包: sudo make<br />
+6安装到指定目录: sudo make install</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>7安装完毕之后，用“ps -ef</td>
+      <td>grep apache2”命令看有没有启动，如果没有用”sudo /usr/local/myserver/apache2/bin/httpd -k start”命令启动～</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>如果出现以下错误：<br />
+liuwei@IT-liuwei:/usr/local/myserver/apache2$ sudo /usr/local/myserver/apache2/bin/httpd -k start<br />
+httpd: Could not reliably determine the server’s fully qualified domain name, using 127.0.1.1 for ServerName<br />
+则用修改httpd.conf文件，在“#ServerName www.example.com:80”这一行下面添加一句“ServerName 127.0.0.1:80”。</p>
+
+<p>再次启动如下:<br />
+liuwei@IT-liuwei:/usr/local/myserver/apache2$ sudo /usr/local/myserver/apache2/bin/httpd -k start<br />
+httpd (pid 2000) already running<br />
+liuwei@IT-liuwei:/usr/local/myserver/apache2$ ps -ef |grep apache2<br />
+root 2000 1 0 17:15 ? 00:00:00 /usr/local/myserver/apache2/bin/httpd -k start<br />
+daemon 2001 2000 0 17:15 ? 00:00:00 /usr/local/myserver/apache2/bin/httpd -k start<br />
+daemon 2002 2000 0 17:15 ? 00:00:00 /usr/local/myserver/apache2/bin/httpd -k start<br />
+daemon 2003 2000 0 17:15 ? 00:00:00 /usr/local/myserver/apache2/bin/httpd -k start<br />
+daemon 2004 2000 0 17:15 ? 00:00:00 /usr/local/myserver/apache2/bin/httpd -k start<br />
+daemon 2005 2000 0 17:15 ? 00:00:00 /usr/local/myserver/apache2/bin/httpd -k start<br />
+liuwei 2024 1904 0 17:19 pts/1 00:00:00 grep –color=auto apache2</p>
+
+<p>8打开浏览器输入http://127.0.0.1 显示it works 则安装成功。</p>
+
+
+            <!-- Comments -->
+            
+
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/liuweicode" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+
+</footer>
+
+
+    </body>
+
+</html>

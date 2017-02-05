@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A place to write things</title>
+    <title>Stay Hungry, Stay Foolish.</title>
     <description>Just writing</description>
     <link>http://liuwei.co/</link>
     <atom:link href="http://liuwei.co/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 05 Feb 2017 16:32:06 +0800</pubDate>
-    <lastBuildDate>Sun, 05 Feb 2017 16:32:06 +0800</lastBuildDate>
+    <pubDate>Sun, 05 Feb 2017 23:18:42 +0800</pubDate>
+    <lastBuildDate>Sun, 05 Feb 2017 23:18:42 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>

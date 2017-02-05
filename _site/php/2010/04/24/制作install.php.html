@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>制作install.php</title>
+    <meta name="description"
+          content="很多开源程序如Uchome，Dz，phpwind，thinkSNS等，他们在进行安装的时候都要求执行install.php进行安装，其实执行install.php安装程序的本质就是用程序中配置的数据库结构创建数据库，并初始化数据库，在我看来这个跟Java里面的ORM框架Hibernate将对象模型导入成数据模型有...">
+
+    <link rel="canonical" href="http://liuwei.co/php/2010/04/24/%E5%88%B6%E4%BD%9Cinstall.php.html">
+    <link rel="alternate" type="application/rss+xml" title="Stay Hungry, Stay Foolish." href="http://liuwei.co/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="liuwei.co">
+            <span class="octicon octicon-mention"></span> liuwei.co
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="制作install.php">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>制作install.php</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2010/04/24
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-12 markdown-body">
+
+            <p>很多开源程序如Uchome，Dz，phpwind，thinkSNS等，他们在进行安装的时候都要求执行install.php进行安装，其实执行install.php安装程序的本质就是用程序中配置的数据库结构创建数据库，并初始化数据库，在我看来这个跟Java里面的ORM框架Hibernate将对象模型导入成数据模型有点相似，不过还是有区别的，虽然PHP现在的版本支持OO思想，但它还不是一个完全面向对象的编程语言，好了，接下来我们做一个简单的php install程序。</p>
+
+<p>第一步：新建一个install.php文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+echo “检查文件权限……&lt;br/&gt;”;
+if(!is_writable(“data/config.php”)){
+echo “&lt;font color=red&gt;config.php文件不可写，请检查权限！&lt;/font&gt;”;
+}else{
+echo “&lt;font color=green&gt;config.php文件可写…&lt;/font&gt;&lt;br/&gt;”;
+echo “&lt;button type=submit name=step1 onClick=\”javascript:window.location.href=’step1.php’\”&gt;下一步&lt;/button&gt;”;
+}
+?&gt;
+</code></pre>
+</div>
+
+<p>注：这里主要针对Linux/Unix等系统下文件权限的判断，windows下默认是可读写的。</p>
+
+<p>第二步，我们配置相关数据库参数，新建step1.php</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+?&gt;
+&lt;h3&gt;填写数据库链接信息&lt;/h3&gt;
+&lt;form action=”step2.php” method=”POST”&gt;
+填写主机：&lt;input type=”text” name=”db_host” value=”localhost”/&gt;&lt;br&gt;
+用户名：&lt;input type=”text” name=”db_user” value=”root”/&gt;&lt;br&gt;
+密码：&lt;input type=”text” name=”db_pass” value=”"/&gt;&lt;br&gt;
+数据库名：&lt;input type=”text” name=”db_dbname” value=”uyvandb”/&gt;&lt;br&gt;
+数据前缀：&lt;input type=”text” name=”db_tag” value=”u_”/&gt;&lt;br&gt;
+&lt;button type=submit name=install&gt;下一步&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+</div>
+
+<p>第三步：将用户提交的数据写入配置文件，并导入到数据库中，新建step2.php</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+if (isset ($_POST[install])) {
+
+$config_str = “&lt;?php”;
+$config_str .= “\n”;
+$config_str .= ‘$mysql_host = “‘ . $_POST[db_host] . ‘”;’;
+$config_str .= “\n”;
+$config_str .= ‘$mysql_user = “‘ . $_POST[db_user] . ‘”;’;
+$config_str .= “\n”;
+$config_str .= ‘$mysql_pass = “‘ . $_POST[db_pass] . ‘”;’;
+$config_str .= “\n”;
+$config_str .= ‘$mysql_dbname = “‘ . $_POST[db_dbname] . ‘”;’;
+$config_str .= “\n”;
+$config_str .= ‘$mysql_tag = “‘ . $_POST[db_tag] . ‘”;’;
+$config_str .= “\n”;
+$config_str .= ‘?&gt;’;
+
+$ff = fopen(“data/config.php”, “w+”);
+$rs = fwrite($ff, $config_str);
+if ($rs) {
+echo “配置成功……&lt;br/&gt;”;
+echo “正在连接数据库……&lt;br/&gt;”;
+include_once (“data/config.php”);
+if (!@ $link = mysql_connect($mysql_host, $mysql_user, $mysql_pass)) {
+echo “数据库连接失败! 请返回上一页检查连接参数 &lt;a href=step1.php&gt;返回修改&lt;/a&gt;”;
+} else {
+echo “连接数据库成功……&lt;br/&gt;”;
+mysql_query(“CREATE DATABASE `$mysql_dbname`”);
+echo “数据库创建成功……&lt;br/&gt;”;
+echo “执行导入……&lt;br/&gt;”;
+mysql_select_db($mysql_dbname);
+$sql_query[] = “CREATE TABLE IF NOT EXISTS `” . $mysql_tag . “message1` (
+`id` tinyint(1) NOT NULL auto_increment,
+`user` varchar(25) NOT NULL,
+`title` varchar(50) NOT NULL,
+`content` tinytext NOT NULL,
+`lastdate` date NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk AUTO_INCREMENT=10 ;
+“;
+$sql_query[] = “CREATE TABLE IF NOT EXISTS `” . $mysql_tag . “message2` (
+`id` tinyint(1) NOT NULL auto_increment,
+`user` varchar(25) NOT NULL,
+`title` varchar(50) NOT NULL,
+`content` tinytext NOT NULL,
+`lastdate` date NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk AUTO_INCREMENT=10 ;
+“;
+$sql_query[] = “CREATE TABLE IF NOT EXISTS `” . $mysql_tag . “message3` (
+`id` tinyint(1) NOT NULL auto_increment,
+`user` varchar(25) NOT NULL,
+`title` varchar(50) NOT NULL,
+`content` tinytext NOT NULL,
+`lastdate` date NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk AUTO_INCREMENT=10 ;
+“;
+foreach ($sql_query as $val) {
+mysql_query($val);
+}
+echo “导入成功……&lt;br/&gt;”;
+echo “安装完成……&lt;br/&gt;”;
+echo “&lt;button type=submit name=step1 onClick=\”javascript:window.location.href=’index.php’\”&gt;点击进入主页&lt;/button&gt;”;
+rename(“install.php”,”install.lock”);
+}
+
+} else {
+echo “文件配置失敗，请重试……”;
+}
+}
+?&gt;
+</code></pre>
+</div>
+
+<p>最后记提醒用户删除安装文件，或者将安装文件改名.</p>
+
+
+
+            <!-- Comments -->
+            
+
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/liuweicode" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+
+</footer>
+
+
+    </body>
+
+</html>

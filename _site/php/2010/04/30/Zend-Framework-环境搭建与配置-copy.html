@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>Zend Framework 环境搭建与配置</title>
+    <meta name="description"
+          content="1：首先下载Zend Framework:下载地址：http://www.zendframework.com/download/latest">
+
+    <link rel="canonical" href="http://127.0.0.1:4000/php/2010/04/30/Zend-Framework-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%85%8D%E7%BD%AE-copy.html">
+    <link rel="alternate" type="application/rss+xml" title="A place to write things" href="http://127.0.0.1:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="liuwei.co">
+            <span class="octicon octicon-mention"></span> liuwei.co
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Zend Framework 环境搭建与配置">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Zend Framework 环境搭建与配置</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2010/04/30
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-12 markdown-body">
+
+            <p>1：首先下载Zend Framework:下载地址：http://www.zendframework.com/download/latest</p>
+
+<p>2：开启PDO：在php.ini文件中把extension=php_pdo.dll之前的“;”号给去掉，并选择性开启相应的数据库组件，我这里用的mysql，所以我将extension=php_pdo_mysql.dll之间的“;”号也去掉了。</p>
+
+<p>3：开启Apache的 rewrite模块，打开httpd.conf 文件，将“LoadModule rewrite_module modules/mod_rewrite.so”前面的#号去掉。</p>
+
+<p>4：打开允许.htaccess的配置的识别，将AllowOverride none 改为 AllowOverride All 。</p>
+
+<p>这是我的配置：</p>
+
+<p>&lt;Directory “E:\IT\php”&gt; <br />
+Options Indexes FollowSymLinks MultiViews 注意：这一句不配置会出现403错误。 <br />
+AllowOverride All 单词首字母大写 <br />
+Order allow,deny <br />
+Allow from all<br />
+&lt;/Directory&gt;</p>
+
+<p>5：下面我们新建一个项目,将下载好的Zend Framework开发包中library下的zend包放在lib目录下。</p>
+
+<p>我们新建一个.htaccess文件<br />
+文件内容如下：</p>
+
+<p>RewriteEngine on <br />
+RewriteRule !.(js|ico|gif|jpg|png|css)$ index.php</p>
+
+<p>php_flag magic_quotes_gpc off <br />
+php_flag register_globals off</p>
+
+<p>PS：前两行代码表示开启Rewrite引擎，保证了程序的单一入口为index.php. 后两句表示禁用 Magic quotes，即禁止magic_quotes_gpc自动为字符串添加转义字符，因为开启会降低程序的可移植性和影响性能，并且php6已经已经不支持该特性。<br />
+6：好了，到此为止前期配置应该差不多了，我们可以打印一下服务器的配置信息，新建一个phpinfo.php文件：</p>
+
+<?php 
+phpinfo(); 
+?>
+
+<p>运行phpinfo.php，检查相关配置是否成功。<br />
+7：新建index.php,配置Zend framework：</p>
+
+<?php 
+/* 
+* Created on 2010-4-30 By LiuWei 
+* 优缘网 
+* www.uyvan.com 
+*/ 
+error_reporting(E_ALL|E_STRICT); 
+
+date_default_timezone_set(‘Asia/Shanghai’); 
+
+set_include_path(‘.’ .PATH_SEPARATOR .’./lib’.PATH_SEPARATOR .’./application/models/’.PATH_SEPARATOR . get_include_path()); //配置环境路径 
+
+require_once "lib/Zend/Loader/Autoloader.php"; //载入zend framework框架类库 
+$loader=Zend_Loader_Autoloader::getInstance()->setFallbackAutoloader(true); //自动加载类文件 
+$loader->suppressNotFoundWarnings(false); 
+$registry = Zend_Registry::getInstance(); //静态获得实例 
+$view = new Zend_View(); 
+$view->setScriptPath(‘./application/views/’);//设置模板路径 
+$registry['view'] = $view; 
+
+//设置控制器 
+$frontController =Zend_Controller_Front::getInstance();//前段控制器，在我看来相当于java里面的struts的ActionServlet 
+$frontController->setBaseUrl(‘/ZendFramework1′)//设置基本路径 
+->setParam(‘noViewRenderer’, true) 
+->setControllerDirectory(‘./application/controllers’) 
+->throwExceptions(true) 
+->dispatch(); 
+?>
+
+<p>8：新建控制器，IndexController.php：</p>
+
+<?php 
+class IndexController extends Zend_Controller_Action { 
+
+function init() 
+{ 
+$this->registry = Zend_Registry :: getInstance();//这里获得注册的实例，这里也似乎更java框架struts里面的ActionForm有点类似 
+$this->view = $this->registry['view'];//将该实例赋给一个变量 
+$this->view->baseUrl = $this->_request->getBaseUrl(); 
+} 
+function indexAction() {//默认调用该方法处理请求 
+//定义一个helloZend变量，并赋值为Hello,Zend Framework 
+$this->view->helloZend = ‘Hello,Zend Framework’; 
+echo $this->view->render(‘index.html’); //显示模版 
+} 
+} 
+?>
+
+<p>9：新建视图层的页面，index.html</p>
+
+<?php 
+echo $this->helloZend; 
+?>
+
+
+            <!-- Comments -->
+            
+
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/liuweicode" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+
+</footer>
+
+
+    </body>
+
+</html>

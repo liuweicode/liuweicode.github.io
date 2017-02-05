@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>ubuntu10.04安装tomcat6</title>
+    <meta name="description"
+          content="安装tomcat6：">
+
+    <link rel="canonical" href="http://liuwei.co/ubuntu/server/2010/05/16/ubuntu10.04%E5%AE%89%E8%A3%85tomcat6.html">
+    <link rel="alternate" type="application/rss+xml" title="Stay Hungry, Stay Foolish." href="http://liuwei.co/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="liuwei.co">
+            <span class="octicon octicon-mention"></span> liuwei.co
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="ubuntu10.04安装tomcat6">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>ubuntu10.04安装tomcat6</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2010/05/16
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-12 markdown-body">
+
+            <p>安装tomcat6：</p>
+
+<p>1，下载tomcat：http://tomcat.apache.org/download-60.cgi 我下载的是apache-tomcat-6.0.26.tar.gz</p>
+
+<p>2，将文件移入你要安装的目录：sudo mv apache-tomcat-6.0.26-deployer.tar.gz /usr/local/myserver/ （我习惯的目录是local下面的myserver）</p>
+
+<p>3，进入到你移动到的目录，将文件解压：<br />
+sudo gunzip apache-tomcat-6.0.26.tar.gz<br />
+sudo tar -xvf apache-tomcat-6.0.26.tar</p>
+
+<p>这里我们解压好之后，寻找类似于README的文件，看到有一个RUNNING.txt文件，差不多就是它了，用cat或者less之类的命令大致浏览一下，果然找到了安装步骤，部分安装说明如下：</p>
+
+<p>(2) Download and Install the Tomcat Binary Distribution<br />
+NOTE: As an alternative to downloading a binary distribution, you can create<br />
+your own from the Tomcat source repository, as described in “BUILDING.txt”.<br />
+If you do this, the value to use for “${catalina.home}” will be the “dist”<br />
+subdirectory of your source distribution.<br />
+(2.1) Download a binary distribution of Tomcat from:</p>
+
+<p>http://tomcat.apache.org</p>
+
+<p>(2.2) Unpack the binary distribution into a convenient location so that the<br />
+distribution resides in its own directory (conventionally named<br />
+“apache-tomcat-[version]“). For the purposes of the remainder of this document,<br />
+the symbolic name “$CATALINA_HOME” is used to refer to the full<br />
+pathname of the release directory.<br />
+(3) Start Up Tomcat<br />
+(3.1) Tomcat can be started by executing the following commands:<br />
+$CATALINA_HOME\bin\startup.bat (Windows)<br />
+$CATALINA_HOME/bin/startup.sh (Unix)<br />
+(3.2) After startup, the default web applications included with Tomcat will be<br />
+available by visiting:</p>
+
+<p>http://localhost:8080/</p>
+
+<p>(3.3) Further information about configuring and running Tomcat can be found in<br />
+the documentation included here, as well as on the Tomcat web site:</p>
+
+<p>http://tomcat.apache.org</p>
+
+<p>(4) Shut Down Tomcat<br />
+(4.1) Tomcat can be shut down by executing the following command:<br />
+$CATALINA_HOME\bin\shutdown (Windows)<br />
+$CATALINA_HOME/bin/shutdown.sh (Unix)</p>
+
+<p>好了，继续……</p>
+
+<p>4，将文件夹改名为tomcat6 ：sudo mv apache-tomcat-6.0.26 tomcat6</p>
+
+<p>5，进入到tomcat6目录并执行命令：<br />
+cd tomcat6<br />
+sudo bin/startup.sh</p>
+
+<p>6，浏览器访问http://localhost:8080/ 看到那只可爱的猫就成功了。。。</p>
+
+<p>7，最后别忘了再看看它的说明书，其他的高级设置等等，RUNNING.txt文件里面也有说明，可以按照需要自己了解研究。</p>
+
+
+            <!-- Comments -->
+            
+
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/liuweicode" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+
+</footer>
+
+
+    </body>
+
+</html>
