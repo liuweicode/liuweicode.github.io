@@ -3,10 +3,10 @@
   <channel>
     <title>Stay Hungry, Stay Foolish.</title>
     <description>Just writing</description>
-    <link>http://liuwei.co/</link>
-    <atom:link href="http://liuwei.co/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Feb 2017 23:10:42 +0800</pubDate>
-    <lastBuildDate>Thu, 09 Feb 2017 23:10:42 +0800</lastBuildDate>
+    <link>http://it.liuwei.co/</link>
+    <atom:link href="http://it.liuwei.co/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 04 Mar 2017 20:02:59 +0800</pubDate>
+    <lastBuildDate>Sat, 04 Mar 2017 20:02:59 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -269,8 +269,8 @@ $tag  = new Cms\Tag;
 &lt;p&gt;原文链接: &lt;a href=&quot;https://daylerees.com/php-namespaces-explained/&quot;&gt;https://daylerees.com/php-namespaces-explained/&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 28 Dec 2016 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</link>
-        <guid isPermaLink="true">http://liuwei.co/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</guid>
+        <link>http://it.liuwei.co/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/php/namespaces/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/2016/12/28/php-namespaces-explained.html</guid>
         
         
         <category>PHP</category>
@@ -376,8 +376,8 @@ Value  :  $(PRODUCT_NAME) tvProvider use&lt;/p&gt;
 &lt;p&gt;原文链接: &lt;a href=&quot;https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html&quot;&gt;https://iosdevcenters.blogspot.com/2016/09/infoplist-privacy-settings-in-ios-10.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 24 Dec 2016 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</link>
-        <guid isPermaLink="true">http://liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</guid>
+        <link>http://it.liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/error/info.plist/ios/ios%2010/privacy%20settings/swift%202.3/swift%203.0/xcode%208.0/2016/12/24/infoplist-privacy-settings-in-ios-10.html</guid>
         
         
         <category>Error</category>
@@ -417,8 +417,8 @@ Value  :  $(PRODUCT_NAME) tvProvider use&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/qfish/XAlign&quot;&gt;XAlign&lt;/a&gt;：格式化代码&lt;/p&gt;
 </description>
         <pubDate>Wed, 07 Oct 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/ios/xcode/2015/10/07/xcode-plugin.html</link>
-        <guid isPermaLink="true">http://liuwei.co/ios/xcode/2015/10/07/xcode-plugin.html</guid>
+        <link>http://it.liuwei.co/ios/xcode/2015/10/07/xcode-plugin.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/ios/xcode/2015/10/07/xcode-plugin.html</guid>
         
         
         <category>iOS</category>
@@ -433,8 +433,8 @@ Value  :  $(PRODUCT_NAME) tvProvider use&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 05 Oct 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/tool/%E5%B7%A5%E5%85%B7/2015/10/05/asciinema.html</link>
-        <guid isPermaLink="true">http://liuwei.co/tool/%E5%B7%A5%E5%85%B7/2015/10/05/asciinema.html</guid>
+        <link>http://it.liuwei.co/tool/%E5%B7%A5%E5%85%B7/2015/10/05/asciinema.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/tool/%E5%B7%A5%E5%85%B7/2015/10/05/asciinema.html</guid>
         
         
         <category>Tool</category>
@@ -595,8 +595,8 @@ CFRelease(font);
 
 </description>
         <pubDate>Sun, 04 Oct 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/ios/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2015/10/04/coreText-memory-manage-in-ios.html</link>
-        <guid isPermaLink="true">http://liuwei.co/ios/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2015/10/04/coreText-memory-manage-in-ios.html</guid>
+        <link>http://it.liuwei.co/ios/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2015/10/04/coreText-memory-manage-in-ios.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/ios/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2015/10/04/coreText-memory-manage-in-ios.html</guid>
         
         
         <category>iOS</category>
@@ -644,8 +644,8 @@ CFRelease(font);
 &lt;p&gt;深入了解&lt;code class=&quot;highlighter-rouge&quot;&gt;forwardingTargetForSelector&lt;/code&gt;的消息转发机制。&lt;/p&gt;
 </description>
         <pubDate>Sat, 03 Oct 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/ios/2015/10/03/message-forward.html</link>
-        <guid isPermaLink="true">http://liuwei.co/ios/2015/10/03/message-forward.html</guid>
+        <link>http://it.liuwei.co/ios/2015/10/03/message-forward.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/ios/2015/10/03/message-forward.html</guid>
         
         
         <category>iOS</category>
@@ -1024,8 +1024,8 @@ func scrollViewDidZoom(scrollView: UIScrollView!) {
 &lt;p&gt;原文：&lt;a href=&quot;http://www.raywenderlich.com/76436/use-uiscrollview-scroll-zoom-content-swift&quot;&gt;UIScrollView Tutorial: Getting Started&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</link>
-        <guid isPermaLink="true">http://liuwei.co/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</guid>
+        <link>http://it.liuwei.co/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/tutorial/translation/uiscrollview/ios/2015/08/18/use-uiscrollview-scroll-zoom-content-swift.html</guid>
         
         
         <category>tutorial</category>
@@ -1075,8 +1075,8 @@ func scrollViewDidZoom(scrollView: UIScrollView!) {
 
 </description>
         <pubDate>Sun, 16 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</link>
-        <guid isPermaLink="true">http://liuwei.co/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</guid>
+        <link>http://it.liuwei.co/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/trick/skill/xcode/ios/2015/08/16/some-tricks-to-improve-efficiency-of-development.html</guid>
         
         
         <category>trick</category>
@@ -1229,8 +1229,8 @@ forever start -e error.log bin/www
 
 </description>
         <pubDate>Sun, 16 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</link>
-        <guid isPermaLink="true">http://liuwei.co/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</guid>
+        <link>http://it.liuwei.co/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/wiki/share/2015/08/16/create-a-personal-wiki-platform.html</guid>
         
         
         <category>Wiki</category>
@@ -1278,8 +1278,8 @@ I/dalvikvm-heap( 4883): Grow heap (frag case) to 32.000MB for 20-byte allocation
 &lt;p&gt;经过排查，不是Service跟Mediaplayer的原因，锁定了问题的原因是线程频繁更新剩余时间的TextView导致的。应该不会吧，我更新时间只有一个线程在跑，不可能线程数量过多导致内存溢出啊，于是我又换成broadcast，在Service中播放音乐的同时，sendbroadcast给Activity来更新Textview，问题依旧，我又换成Timer定时任务来做，依旧未能解决，我走在崩溃的边缘，连头发都凌乱了。不知何时，一位网友的话点醒了我，具体的网址记不清了，他说他以前遇到此问题是由于设置android:layout_weight属性导致控件频繁刷新，联想到我的剩余时间显示控件Textview的android:layout_width设置为wrap_content，由于播放过程中频繁刷新TextView导致内存溢出的，将该属性值改成120dip，问题解决！&lt;/p&gt;
 </description>
         <pubDate>Fri, 29 Mar 2013 00:00:00 +0800</pubDate>
-        <link>http://liuwei.co/android/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2013/03/29/%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%BB%8F%E6%84%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98.html</link>
-        <guid isPermaLink="true">http://liuwei.co/android/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2013/03/29/%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%BB%8F%E6%84%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98.html</guid>
+        <link>http://it.liuwei.co/android/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2013/03/29/%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%BB%8F%E6%84%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98.html</link>
+        <guid isPermaLink="true">http://it.liuwei.co/android/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/2013/03/29/%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%BB%8F%E6%84%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98.html</guid>
         
         
         <category>Android</category>
